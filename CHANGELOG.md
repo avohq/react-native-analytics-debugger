@@ -1,3 +1,7 @@
+# [1.0.0](https://github.com/avohq/avo-react-native-debugger/compare/0.9.1...1.0.0) (2019-09-02)
+
+
+
 ## [0.9.2](https://github.com/avohq/avo-react-native-debugger/compare/0.9.1...0.9.2) (2019-09-02)
 
 
