@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.1...1.0.2) (2019-09-05)
+
+
+
+## [1.0.1](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.0...1.0.1) (2019-09-05)
+
+
+
 # [1.0.0](https://github.com/avohq/avo-react-native-debugger/compare/0.9.1...1.0.0) (2019-09-02)
 
 

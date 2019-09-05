@@ -34,6 +34,26 @@ export default class AvoDebugger extends Component {
     return AvoDebugger.rootSibling !== null;
   };
 
+  static postEvent = (
+    eventId,
+    timestamp,
+    eventName,
+    messages,
+    eventProperties,
+    userProperties
+  ) => {
+    if (AvoDebugger.isEnabled()) {
+      AvoDebugger.avo.postEvent(
+        eventId,
+        timestamp,
+        eventName,
+        messages,
+        eventProperties,
+        userProperties
+      );
+    }
+  };
+
   state = {unreadMesages: 0, pan: new Animated.ValueXY()};
   items = [];
   drags = new AvoDebuggerDrags();

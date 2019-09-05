@@ -2,10 +2,10 @@
 
 ## Install
 
-To install the latest version of Avo react-native debugger, run this command:
+To install the latest version of Avo react-native analytics debugger, run this command:
 
 ```
-npm install avo-react-native-debugger
+npm install react-native-analytics-debugger
 ```
 
 ## Caught a Bug?

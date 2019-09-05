@@ -1,14 +1,14 @@
 {
-  "name": "avo-react-native-debugger",
-  "version": "1.0.0",
+  "name": "react-native-analytics-debugger",
+  "version": "1.0.2",
   "description": "The Avo react-native debugger",
   "author": "Avo (https://www.avo.app)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/avohq/avo-react-native-debugger.git"
+    "url": "https://github.com/avohq/react-native-analytics-debugger.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/avohq/avo-react-native-debugger",
+  "homepage": "https://github.com/avohq/react-native-analytics-debugger",
   "keywords": [
     "android",
     "analytics",
@@ -33,7 +33,6 @@
     "commitizen": "3.0.5",
     "conventional-changelog-cli": "2.0.11",
     "cz-conventional-changelog": "2.1.0",
-    "react-native": "^0.59.0",
     "release-it": "8.2.0"
   },
   "config": {
