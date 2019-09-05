@@ -1,14 +1,14 @@
 {
-  "name": "avo-react-native-debugger",
+  "name": "react-native-analytics-debugger",
   "version": "1.0.0",
   "description": "The Avo react-native debugger",
   "author": "Avo (https://www.avo.app)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/avohq/avo-react-native-debugger.git"
+    "url": "https://github.com/avohq/react-native-analytics-debugger.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/avohq/avo-react-native-debugger",
+  "homepage": "https://github.com/avohq/react-native-analytics-debugger",
   "keywords": [
     "android",
     "analytics",
