@@ -12,8 +12,6 @@ export default class App extends Component {
   player = new Player();
 
   componentDidMount() {
-    AvoDebugger.toggleDebugger(true);
-
     this.player.soundObject.setOnPlaybackStatusUpdate((status) => {
       this.setState(() => ({ time: status.positionMillis/1000, duration: status.durationMillis/1000 }));
     })
@@ -23,6 +21,14 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <View style={{position: 'absolute', top: 48, left: 0, right: 0, flexDirection:'row', justifyContent: 'space-around'}}>
+          <Button onPress={this.toggleBarDebugger}
+              title="Toggle bar debugger"/>
+          <Button onPress={this.toggleBubbleDebugger}
+              title="Toggle bubble debugger"/>
+        </View>
+
         <Text style={styles.label}>{this.playerStorage.trackName(this.state.currentTrackIndex) }</Text>
 
         <Text style={styles.label}>{this.timingLabel()}</Text>
@@ -30,16 +36,16 @@ export default class App extends Component {
         <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
           <Button 
             onPress={this.onPrevTrackPress}
-              title="<"></Button>
+              title="<"/>
           <Button onPress={this.onPlayPausePress}
-              title={this.playButtonTitle()}></Button>
+              title={this.playButtonTitle()}/>
           <Button onPress={this.onNextTrackPress}
-              title=">"></Button>
+              title=">"/>
         </View>
         <View style={{margin: 16}}>
           <Button 
               onPress={this.onLoopPress}
-                title={this.loopButtonTitle()}></Button>
+                title={this.loopButtonTitle()}/>
           </View>
       </View>
     );
@@ -95,6 +101,14 @@ export default class App extends Component {
         });
         this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex - 1 }));
       }
+  }
+
+  toggleBarDebugger = () => {
+    AvoDebugger.toggleDebugger(true);
+  }
+
+  toggleBubbleDebugger = () => {
+    AvoDebugger.toggleDebugger(false);
   }
 
   onLoopPress = () => {
