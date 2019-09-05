@@ -1,6 +1,6 @@
 export default class MusicStorage {
 
-    tracks = ['greek_loop_mix.mp3', 'jingle_jungle_around_the_bot.wav', 'the_flying_hat.wav'];
+    tracks = ['greek_loop_mix.mp3', 'jingle_jungle_around_the_bot.wav', 'cartoon-whistle.wav'];
 
     hasNext(fromPosition) {
         return this.tracks.length - 1 > fromPosition;
@@ -25,7 +25,7 @@ export default class MusicStorage {
             case 1:
                 return require('./assets/jingle_jungle_around_the_bot.wav');
             case 2:
-                return require('./assets/the_flying_hat.wav');
+                return require('./assets/cartoon-whistle.wav');
         }
        return undefined;
     }

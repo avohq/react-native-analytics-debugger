@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import MusicStorage from './MusicStorage';
 import Player from './Player';
-import AvoDebugger from 'avo-react-native-debugger';
+import AvoDebugger from 'react-native-analytics-debugger';
+import Avo from './Avo';
 
 export default class App extends Component {
 
@@ -11,42 +12,52 @@ export default class App extends Component {
   playerStorage = new MusicStorage();
   player = new Player();
 
+  constructor(props) {
+    super(props);
+    Avo.initAvo(
+      { env: 'dev', debugger: AvoDebugger },
+      {},
+      {},
+      { make: function () { }, logEvent: function () { } }
+    );
+  }
+
   componentDidMount() {
     this.player.soundObject.setOnPlaybackStatusUpdate((status) => {
-      this.setState(() => ({ time: status.positionMillis/1000, duration: status.durationMillis/1000 }));
+      this.setState(() => ({ time: status.positionMillis / 1000, duration: status.durationMillis / 1000 }));
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+
+    AvoDebugger.toggleDebugger(true);
+    //  Avo.appOpened();
   }
 
   render() {
     return (
       <View style={styles.container}>
 
-        <View style={{position: 'absolute', top: 48, left: 0, right: 0, flexDirection:'row', justifyContent: 'space-around'}}>
+        <View style={{ position: 'absolute', top: 48, left: 0, right: 0, flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button onPress={this.toggleBarDebugger}
-              title="Toggle bar debugger"/>
+            title="Toggle bar debugger" />
           <Button onPress={this.toggleBubbleDebugger}
-              title="Toggle bubble debugger"/>
+            title="Toggle bubble debugger" />
         </View>
 
-        <Text style={styles.label}>{this.playerStorage.trackName(this.state.currentTrackIndex) }</Text>
+        <Text style={styles.label}>{this.playerStorage.trackName(this.state.currentTrackIndex)}</Text>
 
         <Text style={styles.label}>{this.timingLabel()}</Text>
 
-        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-          <Button 
-            onPress={this.onPrevTrackPress}
-              title="<"/>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+          {this.prevTrackButton()}
           <Button onPress={this.onPlayPausePress}
-              title={this.playButtonTitle()}/>
-          <Button onPress={this.onNextTrackPress}
-              title=">"/>
+            title={this.playButtonTitle()} />
+          {this.nextTrackButton()}
         </View>
-        <View style={{margin: 16}}>
-          <Button 
-              onPress={this.onLoopPress}
-                title={this.loopButtonTitle()}/>
-          </View>
+        <View style={{ margin: 16 }}>
+          <Button
+            onPress={this.onLoopPress}
+            title={this.loopButtonTitle()} />
+        </View>
       </View>
     );
   }
@@ -60,7 +71,7 @@ export default class App extends Component {
   }
 
   playButtonTitle() {
-    if (this,this.state.playing) {
+    if (this, this.state.playing) {
       return "Pause";
     } else {
       return "Play";
@@ -68,7 +79,7 @@ export default class App extends Component {
   }
 
   loopButtonTitle() {
-    if (this,this.state.looping) {
+    if (this, this.state.looping) {
       return "Looping On";
     } else {
       return "Looping Off";
@@ -78,11 +89,24 @@ export default class App extends Component {
   onPlayPausePress = () => {
     if (this.state.playing === false) {
       this.player.play(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+      Avo.play();
     } else {
       this.player.pause();
+      Avo.pause();
     }
 
     this.setState(() => ({ playing: !this.state.playing }));
+  }
+
+  nextTrackButton = () => {
+    if (this.playerStorage.hasNext(this.state.currentTrackIndex)) {
+      return <View style={{ width: 24 }}>
+        <Button onPress={this.onNextTrackPress}
+          title=">" />
+      </View>
+    } else {
+      return <View style={{ width: 24 }} />
+    }
   }
 
   onNextTrackPress = () => {
@@ -94,21 +118,34 @@ export default class App extends Component {
     }
   }
 
+  prevTrackButton = () => {
+    if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
+      return <View style={{ width: 24 }}>
+        <Button onPress={this.onPrevTrackPress}
+          title="<" />
+      </View>
+    } else {
+      return <View style={{ width: 24 }} />
+    }
+  }
+
   onPrevTrackPress = () => {
-      if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
-        this.player.stopAndUnload(() => {
-          this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
-        });
-        this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex - 1 }));
-      }
+    if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
+      this.player.stopAndUnload(() => {
+        this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+      });
+      this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex - 1 }));
+    }
   }
 
   toggleBarDebugger = () => {
-    AvoDebugger.toggleDebugger(true);
+    //AvoDebugger.enable('bar');
+    AvoDebugger.toggleDebugger(false);
   }
 
   toggleBubbleDebugger = () => {
     AvoDebugger.toggleDebugger(false);
+    //AvoDebugger.enable();
   }
 
   onLoopPress = () => {
@@ -123,6 +160,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
-  label: {alignSelf: 'center', margin: 16},
+  label: { alignSelf: 'center', margin: 16 },
 
 });
