@@ -12,23 +12,26 @@ import {eventsHaveErrors} from './utils';
 export default class AvoDebugger extends Component {
   static avo = null;
   static rootSibling = null;
+  static items = [];
 
-  static toggleDebugger = isBar => {
-    if (AvoDebugger.rootSibling !== null) {
+  static enable = (type) => {
+    AvoDebugger.disable();
+
+    let isBar = type === 'bar';
+
+    AvoDebugger.rootSibling = new RootSiblings(<AvoDebugger
+      isBar={isBar}
+      ref={(avoView) => AvoDebugger.avo = avoView}
+    />);
+  }
+
+  static disable = () => {
+    if (AvoDebugger.rootSibling != null) {
       AvoDebugger.rootSibling.destroy();
       AvoDebugger.rootSibling = null;
       AvoDebugger.avo = null;
-    } else {
-      AvoDebugger.rootSibling = new RootSiblings(
-        (
-          <AvoDebugger
-            isBar={isBar}
-            ref={avoView => (AvoDebugger.avo = avoView)}
-          />
-        )
-      );
     }
-  };
+  }
 
   static isEnabled = () => {
     return AvoDebugger.rootSibling !== null;
@@ -55,7 +58,6 @@ export default class AvoDebugger extends Component {
   };
 
   state = {unreadMesages: 0, pan: new Animated.ValueXY()};
-  items = [];
   drags = new AvoDebuggerDrags();
 
   constructor(props) {
@@ -78,7 +80,7 @@ export default class AvoDebugger extends Component {
     eventProperties,
     userProperties
   ) {
-    this.items.push({
+    AvoDebugger.items.push({
       key: Math.random().toString(),
       id: eventId,
       timestamp: timestamp,
@@ -112,7 +114,7 @@ export default class AvoDebugger extends Component {
         <TouchableOpacity
           onPress={() => {
             EventsListScreen.toggleDebuggerLogScreen(
-              this.items,
+              AvoDebugger.items,
               this.state.unreadMesages
             );
             this.setState(() => ({unreadMesages: 0}));
@@ -129,7 +131,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemName() {
-    let lastItem = this.items[this.items.length - 1];
+    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
     if (lastItem) {
       return lastItem.name;
     } else {
@@ -138,7 +140,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemTimestamp() {
-    let lastItem = this.items[this.items.length - 1];
+    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
     if (lastItem) {
       return lastItem.timestamp;
     } else {
@@ -160,7 +162,7 @@ export default class AvoDebugger extends Component {
         <TouchableOpacity
           onPress={() => {
             EventsListScreen.toggleDebuggerLogScreen(
-              this.items,
+              AvoDebugger.items,
               this.state.unreadMesages
             );
             this.setState(() => ({unreadMesages: 0}));
@@ -176,9 +178,9 @@ export default class AvoDebugger extends Component {
   }
 
   hasNewErrors() {
-    let start = this.items.length - this.state.unreadMesages;
-    let end = this.items.length;
-    let newItems = this.items.slice(start, end);
+    let start = AvoDebugger.items.length - this.state.unreadMesages;
+    let end = AvoDebugger.items.length;
+    let newItems = AvoDebugger.items.slice(start, end);
     return eventsHaveErrors(newItems);
   }
 }
