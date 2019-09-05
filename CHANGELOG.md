@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.2...1.0.3) (2019-09-05)
+
+
+### Bug Fixes
+
+* **AvoDebugger.js:** Change debugges show/hide interface / fix posting events early ([728d037](https://github.com/avohq/react-native-analytics-debugger/commit/728d037))
+
+
+
 ## [1.0.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.1...1.0.2) (2019-09-05)
 
 
