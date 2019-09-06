@@ -1,0 +1,23 @@
+{
+  "avo": {
+    "version": 1
+  },
+  "schema": {
+    "id": "0cd8DLUxoxnhXaqRxL6O",
+    "name": "Analytics debugger example app"
+  },
+  "branch": {
+    "id": "master",
+    "name": "master"
+  },
+  "sources": [
+    {
+      "id": "_0pjEChMf",
+      "name": "mobile",
+      "path": "Avo.js",
+      "actionId": "fGR2DR1dhCoaj4YKHmCF",
+      "branchId": "master",
+      "updatedAt": "2019-09-06T14:46:22.387Z"
+    }
+  ]
+}
