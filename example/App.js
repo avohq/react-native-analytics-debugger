@@ -115,6 +115,7 @@ export default class App extends Component {
     if (this.playerStorage.hasNext(this.state.currentTrackIndex)) {
       this.player.stopAndUnload(() => {
         this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+        Avo.playNextTrack();
       });
       this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex + 1 }));
     }
@@ -135,6 +136,7 @@ export default class App extends Component {
     if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
       this.player.stopAndUnload(() => {
         this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+        Avo.playPreviousTrack();
       });
       this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex - 1 }));
     }
