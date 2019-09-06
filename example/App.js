@@ -38,9 +38,11 @@ export default class App extends Component {
 
         <View style={{ position: 'absolute', top: 48, left: 0, right: 0, flexDirection: 'row', justifyContent: 'space-around' }}>
           <Button onPress={this.toggleBarDebugger}
-            title="Toggle bar debugger" />
+            title="Bar debugger" />
           <Button onPress={this.toggleBubbleDebugger}
-            title="Toggle bubble debugger" />
+            title="Bubble debugger" />
+          <Button onPress={this.disableDebugger}
+            title="Disable debugger" />
         </View>
 
         <Text style={styles.label}>{this.playerStorage.trackName(this.state.currentTrackIndex)}</Text>
@@ -144,6 +146,10 @@ export default class App extends Component {
 
   toggleBubbleDebugger = () => {
     AvoDebugger.enable();
+  }
+
+  disableDebugger = () => {
+    AvoDebugger.disable();
   }
 
   onLoopPress = () => {
