@@ -13,6 +13,7 @@ export default class AvoDebugger extends Component {
   static avo = null;
   static rootSibling = null;
   static items = [];
+  static unhandledNewItems = { count: 0 };
 
   static enable = (type) => {
     AvoDebugger.disable();
@@ -46,14 +47,20 @@ export default class AvoDebugger extends Component {
     userProperties
   ) => {
     if (AvoDebugger.isEnabled()) {
-      AvoDebugger.avo.postEvent(
-        eventId,
-        timestamp,
-        eventName,
-        messages,
-        eventProperties,
-        userProperties
-      );
+      AvoDebugger.items.push({
+        key: Math.random().toString(),
+        id: eventId,
+        timestamp: timestamp,
+        name: eventName,
+        messages: messages,
+        eventProps: eventProperties,
+        userProps: userProperties
+      });
+      if (AvoDebugger.avo != null) {
+        AvoDebugger.avo.onNewEvent();
+      } else {
+        AvoDebugger.unhandledNewItems.count += 1;
+      }
     }
   };
 
@@ -72,23 +79,13 @@ export default class AvoDebugger extends Component {
     }
   }
 
-  postEvent(
-    eventId,
-    timestamp,
-    eventName,
-    messages,
-    eventProperties,
-    userProperties
-  ) {
-    AvoDebugger.items.push({
-      key: Math.random().toString(),
-      id: eventId,
-      timestamp: timestamp,
-      name: eventName,
-      messages: messages,
-      eventProps: eventProperties,
-      userProps: userProperties
+  componentDidMount() {
+    this.setState(prevState => ({unreadMesages: AvoDebugger.unhandledNewItems.count}), () => {
+      AvoDebugger.unhandledNewItems.count = 0;
     });
+  }
+
+  onNewEvent() {
     this.setState(prevState => ({unreadMesages: prevState.unreadMesages + 1}));
   }
 
