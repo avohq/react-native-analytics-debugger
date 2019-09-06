@@ -73,7 +73,7 @@ export default class App extends Component {
   }
 
   playButtonTitle() {
-    if (this, this.state.playing) {
+    if (this.state.playing) {
       return "Pause";
     } else {
       return "Play";
@@ -81,7 +81,7 @@ export default class App extends Component {
   }
 
   loopButtonTitle() {
-    if (this, this.state.looping) {
+    if (this.state.looping) {
       return "Looping On";
     } else {
       return "Looping Off";

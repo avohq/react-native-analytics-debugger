@@ -64,7 +64,7 @@ export default class AvoDebugger extends Component {
     }
   };
 
-  state = {unreadMesages: 0, pan: new Animated.ValueXY()};
+  state = {unreadMessages: 0, pan: new Animated.ValueXY()};
   drags = new AvoDebuggerDrags();
 
   constructor(props) {
@@ -80,13 +80,13 @@ export default class AvoDebugger extends Component {
   }
 
   componentDidMount() {
-    this.setState(prevState => ({unreadMesages: AvoDebugger.unhandledNewItems.count}), () => {
+    this.setState(prevState => ({unreadMessages: AvoDebugger.unhandledNewItems.count}), () => {
       AvoDebugger.unhandledNewItems.count = 0;
     });
   }
 
   onNewEvent() {
-    this.setState(prevState => ({unreadMesages: prevState.unreadMesages + 1}));
+    this.setState(prevState => ({unreadMessages: prevState.unreadMessages + 1}));
   }
 
   render() {
@@ -112,9 +112,9 @@ export default class AvoDebugger extends Component {
           onPress={() => {
             EventsListScreen.toggleDebuggerLogScreen(
               AvoDebugger.items,
-              this.state.unreadMesages
+              this.state.unreadMessages
             );
-            this.setState(() => ({unreadMesages: 0}));
+            this.setState(() => ({unreadMessages: 0}));
           }}
         >
           <AvoBar
@@ -160,13 +160,13 @@ export default class AvoDebugger extends Component {
           onPress={() => {
             EventsListScreen.toggleDebuggerLogScreen(
               AvoDebugger.items,
-              this.state.unreadMesages
+              this.state.unreadMessages
             );
-            this.setState(() => ({unreadMesages: 0}));
+            this.setState(() => ({unreadMessages: 0}));
           }}
         >
           <AvoBubble
-            newItems={this.state.unreadMesages}
+            newItems={this.state.unreadMessages}
             hasErrors={this.hasNewErrors()}
           />
         </TouchableOpacity>
@@ -175,7 +175,7 @@ export default class AvoDebugger extends Component {
   }
 
   hasNewErrors() {
-    let start = AvoDebugger.items.length - this.state.unreadMesages;
+    let start = AvoDebugger.items.length - this.state.unreadMessages;
     let end = AvoDebugger.items.length;
     let newItems = AvoDebugger.items.slice(start, end);
     return eventsHaveErrors(newItems);
