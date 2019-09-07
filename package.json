@@ -19,6 +19,7 @@
     "react-native"
   ],
   "main": "src/AvoDebugger.js",
+  "types": "src/AvoDebugger.d.ts",
   "engines": {
     "node": ">=6"
   },
