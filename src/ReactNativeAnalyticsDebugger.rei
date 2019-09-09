@@ -7,7 +7,7 @@ let isEnabled: unit => bool;
 
 // enable the debugger
 // note: call from didMount
-let enable: ([| `bar | `bubble]) => unit;
+let enable: ([`bar | `bubble]) => unit;
 
 // disable the debugger
 let disable: unit => unit;
