@@ -4,23 +4,24 @@ type t;
 external debugger: t = "default";
 
 external instance: t => 'a = "%identity";
-
 let instance = () => instance(debugger);
 
 [@bs.send]
 external isEnabled: t => bool = "isEnabled";
-
 let isEnabled = () => isEnabled(debugger);
 
+[@bs.deriving abstract]
+type config = {
+  mode: [@bs.string] [
+    | [@bs.as "bar"] `bar
+    | [@bs.as "bubble"] `bubble
+  ],
+};
+
 [@bs.send]
-external enable: t => ([@bs.string] [
-            | [@bs.as "bar"] `bar
-            | [@bs.as "bubble"] `bubble
-          ]) => unit = "enable";
-
-let enable = (type_) => enable(debugger, type_);
+external showDebugger: t => (config) => unit = "showDebugger";
+let showDebugger = (~mode) => showDebugger(debugger, config(~mode));
 
 [@bs.send]
-external disable: t => unit = "disable";
-
-let disable = () => disable(debugger);
+external hideDebugger: t => unit = "hideDebugger";
+let hideDebugger = () => hideDebugger(debugger);

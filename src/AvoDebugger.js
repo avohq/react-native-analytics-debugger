@@ -15,10 +15,10 @@ export default class AvoDebugger extends Component {
   static items = [];
   static unhandledNewItems = { count: 0 };
 
-  static enable = (type) => {
+  static showDebugger = ({mode}) => {
     AvoDebugger.disable();
 
-    let isBar = type === 'bar';
+    let isBar = mode === 'bar';
 
     AvoDebugger.rootSibling = new RootSiblings(<AvoDebugger
       isBar={isBar}
@@ -26,7 +26,7 @@ export default class AvoDebugger extends Component {
     />);
   }
 
-  static disable = () => {
+  static hideDebugger = () => {
     if (AvoDebugger.rootSibling != null) {
       AvoDebugger.rootSibling.destroy();
       AvoDebugger.rootSibling = null;
