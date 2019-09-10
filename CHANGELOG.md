@@ -1,3 +1,12 @@
+## [1.0.7-beta.0](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.6...1.0.7-beta.0) (2019-09-09)
+
+
+### Bug Fixes
+
+* Show property name in list ([d598670](https://github.com/avohq/react-native-analytics-debugger/commit/d598670))
+
+
+
 ## [1.0.6](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.6-beta.2...1.0.6) (2019-09-09)
 
 
