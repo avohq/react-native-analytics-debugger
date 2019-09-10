@@ -94,7 +94,7 @@ EventsListScreen.propTypes = {
           propertyId: PropTypes.string.isRequired,
           message: PropTypes.string.isRequired,
           allowedTypes: PropTypes.arrayOf(PropTypes.string),
-          providedType: PropTypes.string.isRequired
+          providedType: PropTypes.string
         })
       ),
       eventProps: PropTypes.arrayOf(
