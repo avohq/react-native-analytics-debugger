@@ -3,9 +3,9 @@ import { Component } from 'react';
 declare module "react-native-analytics-debugger" {
 
     class AvoDebugger extends Component {
-        static enable(type: String): void;
+        static showDebugger({mode}: {mode: 'bar' | 'bubble'}): void;
 
-        static disable(): void;
+        static hideDebugger(): void;
 
         static isEnabled(): boolean;
     }

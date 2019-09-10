@@ -13,26 +13,25 @@ export default class AvoDebugger extends Component {
   static avo = null;
   static rootSibling = null;
   static items = [];
-  static unhandledNewItems = { count: 0 };
+  static unhandledNewItems = {count: 0};
 
-  static enable = (type) => {
-    AvoDebugger.disable();
+  static showDebugger = ({mode}) => {
+    AvoDebugger.hideDebugger();
 
-    let isBar = type === 'bar';
+    let isBar = mode === 'bar';
 
-    AvoDebugger.rootSibling = new RootSiblings(<AvoDebugger
-      isBar={isBar}
-      ref={(avoView) => AvoDebugger.avo = avoView}
-    />);
-  }
+    AvoDebugger.rootSibling = new RootSiblings(
+      <AvoDebugger isBar={isBar} ref={avoView => (AvoDebugger.avo = avoView)} />
+    );
+  };
 
-  static disable = () => {
+  static hideDebugger = () => {
     if (AvoDebugger.rootSibling != null) {
       AvoDebugger.rootSibling.destroy();
       AvoDebugger.rootSibling = null;
       AvoDebugger.avo = null;
     }
-  }
+  };
 
   static isEnabled = () => {
     return AvoDebugger.rootSibling !== null;
@@ -80,13 +79,18 @@ export default class AvoDebugger extends Component {
   }
 
   componentDidMount() {
-    this.setState(prevState => ({unreadMessages: AvoDebugger.unhandledNewItems.count}), () => {
-      AvoDebugger.unhandledNewItems.count = 0;
-    });
+    this.setState(
+      prevState => ({unreadMessages: AvoDebugger.unhandledNewItems.count}),
+      () => {
+        AvoDebugger.unhandledNewItems.count = 0;
+      }
+    );
   }
 
   onNewEvent() {
-    this.setState(prevState => ({unreadMessages: prevState.unreadMessages + 1}));
+    this.setState(prevState => ({
+      unreadMessages: prevState.unreadMessages + 1
+    }));
   }
 
   render() {
