@@ -90,6 +90,7 @@ EventsListScreen.propTypes = {
       name: PropTypes.string.isRequired,
       messages: PropTypes.arrayOf(
         PropTypes.exact({
+          tag: PropTypes.string,
           propertyId: PropTypes.string.isRequired,
           message: PropTypes.string.isRequired,
           allowedTypes: PropTypes.arrayOf(PropTypes.string),
