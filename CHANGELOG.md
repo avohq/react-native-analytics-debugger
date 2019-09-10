@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.0...1.1.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* Add name key in prop-types for event/user properties ([d145ef4](https://github.com/avohq/react-native-analytics-debugger/commit/d145ef4))
+
+
+
 # [1.1.0](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.8-beta.3...1.1.0) (2019-09-10)
 
 
