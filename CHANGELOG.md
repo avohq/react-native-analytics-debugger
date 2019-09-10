@@ -1,3 +1,17 @@
+## [1.0.8-beta.1](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.8-beta.0...1.0.8-beta.1) (2019-09-10)
+
+
+### Code Refactoring
+
+* Make the API more explicit ([6da0018](https://github.com/avohq/react-native-analytics-debugger/commit/6da0018))
+
+
+### BREAKING CHANGES
+
+* enable/disable are no longer supported, use showDebugger/hideDebugger
+
+
+
 ## [1.0.8-beta.0](https://github.com/avohq/react-native-analytics-debugger/compare/1.0.7...1.0.8-beta.0) (2019-09-10)
 
 
