@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.2...1.1.3) (2019-09-10)
+
+
+### Bug Fixes
+
+* Add missing propType ([4ce2f22](https://github.com/avohq/react-native-analytics-debugger/commit/4ce2f22))
+
+
+
 ## [1.1.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.1...1.1.2) (2019-09-10)
 
 
