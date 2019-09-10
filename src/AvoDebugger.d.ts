@@ -1,14 +1,22 @@
-import { Component } from 'react';
+import {Component} from 'react';
 
-declare module "react-native-analytics-debugger" {
+declare module 'react-native-analytics-debugger' {
+  class AvoDebugger extends Component {
+    static showDebugger({mode}: {mode: 'bar' | 'bubble'}): void;
 
-    class AvoDebugger extends Component {
-        static showDebugger({mode}: {mode: 'bar' | 'bubble'}): void;
+    static hideDebugger(): void;
 
-        static hideDebugger(): void;
+    static isEnabled(): boolean;
 
-        static isEnabled(): boolean;
-    }
+    static postEvent(
+      id: string,
+      timestamp: number,
+      name: string,
+      messages: any[],
+      eventProperties: any[],
+      userProperties: any[]
+    ): void;
+  }
 
-    export = AvoDebugger;
+  export = AvoDebugger;
 }
