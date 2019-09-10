@@ -1,3 +1,12 @@
+## [1.1.4](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.3...1.1.4) (2019-09-10)
+
+
+### Bug Fixes
+
+* Make providedType optional ([76833bb](https://github.com/avohq/react-native-analytics-debugger/commit/76833bb))
+
+
+
 ## [1.1.3](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.2...1.1.3) (2019-09-10)
 
 
