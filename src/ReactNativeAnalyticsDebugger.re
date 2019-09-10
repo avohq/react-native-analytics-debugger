@@ -10,17 +10,17 @@ let instance = () => instance(debugger);
 external isEnabled: t => bool = "isEnabled";
 let isEnabled = () => isEnabled(debugger);
 
+[@bs.deriving jsConverter]
+type modes = [| `bar | `bubble];
+
 [@bs.deriving abstract]
 type config = {
-  mode: [@bs.string] [
-    | [@bs.as "bar"] `bar
-    | [@bs.as "bubble"] `bubble
-  ],
+  mode: string,
 };
 
 [@bs.send]
 external showDebugger: t => (config) => unit = "showDebugger";
-let showDebugger = (~mode) => showDebugger(debugger, config(~mode));
+let showDebugger = (~mode) => showDebugger(debugger, config(~mode=modesToJs(mode)));
 
 [@bs.send]
 external hideDebugger: t => unit = "hideDebugger";
