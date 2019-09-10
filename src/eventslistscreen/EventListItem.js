@@ -206,14 +206,14 @@ EventsListItem.propTypes = {
       PropTypes.exact({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
+        value: PropTypes.any
       })
     ),
     userProps: PropTypes.arrayOf(
       PropTypes.exact({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
+        value: PropTypes.any
       })
     )
   }),
