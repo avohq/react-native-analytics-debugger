@@ -11,7 +11,7 @@ external isEnabled: t => bool = "isEnabled";
 let isEnabled = () => isEnabled(debugger);
 
 [@bs.deriving jsConverter]
-type modes = [| `bar | `bubble];
+type modes = [ | `bar | `bubble];
 
 [@bs.deriving abstract]
 type config = {
