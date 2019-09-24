@@ -1,3 +1,13 @@
+## [1.1.6](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.5...1.1.6) (2019-09-24)
+
+
+### Bug Fixes
+
+* **EventListItem.js:** Show non-string values in the event properties ([479bdad](https://github.com/avohq/react-native-analytics-debugger/commit/479bdad))
+* **Example app:** Fix outdated interface in example app ([8aae7ed](https://github.com/avohq/react-native-analytics-debugger/commit/8aae7ed))
+
+
+
 ## [1.1.5](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.4...1.1.5) (2019-09-10)
 
 
