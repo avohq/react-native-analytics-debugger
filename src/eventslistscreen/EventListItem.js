@@ -125,7 +125,7 @@ export default class EventsListItem extends Component {
             {prop.name}
           </Text>
           <Text style={[styles.expendedRowValue, {color: textColor}]}>
-            {prop.value}
+            {String(prop.value)}
           </Text>
         </View>
         {errorMessageView}
