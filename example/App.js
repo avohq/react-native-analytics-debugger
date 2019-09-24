@@ -28,7 +28,7 @@ export default class App extends Component {
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
 
-    AvoDebugger.enable('bar');
+    AvoDebugger.showDebugger({mode: "bar"});
     Avo.appOpened();
   }
 
@@ -143,15 +143,15 @@ export default class App extends Component {
   }
 
   toggleBarDebugger = () => {
-    AvoDebugger.enable('bar');
+    AvoDebugger.showDebugger({mode: "bar"});
   }
 
   toggleBubbleDebugger = () => {
-    AvoDebugger.enable();
+    AvoDebugger.showDebugger({mode: "bubble"});
   }
 
   disableDebugger = () => {
-    AvoDebugger.disable();
+    AvoDebugger.hideDebugger();
   }
 
   onLoopPress = () => {
