@@ -1,3 +1,12 @@
+## [1.1.7](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.6...1.1.7) (2019-09-26)
+
+
+### Bug Fixes
+
+* Improving click handling ([72865d3](https://github.com/avohq/react-native-analytics-debugger/commit/72865d3))
+
+
+
 ## [1.1.6](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.5...1.1.6) (2019-09-24)
 
 
