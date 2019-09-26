@@ -1,3 +1,12 @@
+## [1.1.8](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.7...1.1.8) (2019-09-26)
+
+
+### Bug Fixes
+
+* More touch handling improvements ([1789565](https://github.com/avohq/react-native-analytics-debugger/commit/1789565))
+
+
+
 ## [1.1.7](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.6...1.1.7) (2019-09-26)
 
 
