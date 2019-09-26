@@ -114,11 +114,11 @@ export default class AvoDebugger extends Component {
       >
         <TouchableOpacity
           onPress={() => {
+            this.setState(() => ({unreadMessages: 0}));
             EventsListScreen.toggleDebuggerLogScreen(
               AvoDebugger.items,
               this.state.unreadMessages
             );
-            this.setState(() => ({unreadMessages: 0}));
           }}
         >
           <AvoBar
@@ -162,11 +162,11 @@ export default class AvoDebugger extends Component {
       >
         <TouchableOpacity
           onPress={() => {
+            this.setState(() => ({unreadMessages: 0}));
             EventsListScreen.toggleDebuggerLogScreen(
               AvoDebugger.items,
               this.state.unreadMessages
             );
-            this.setState(() => ({unreadMessages: 0}));
           }}
         >
           <AvoBubble

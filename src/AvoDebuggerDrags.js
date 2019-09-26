@@ -10,10 +10,10 @@ export default class AvoDebuggerDrags {
         this._val = { x: 0, y: 0 }
         pan.addListener((value) => this._val = value);
         this.panResponder = PanResponder.create({
-            onMoveShouldSetPanResponder: (evt, gestureState) => {
-                return !(gestureState.dx === 0 && gestureState.dy === 0)
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+                return Math.abs(gestureState.dx) > 8;
             },
-            onStartShouldSetPanResponder: (e, gesture) => true,
+            onStartShouldSetPanResponder: (e, gesture) => false,
             onPanResponderGrant: (e, gesture) => {
                 pan.setOffset({
                     x: 0,
@@ -56,10 +56,10 @@ export default class AvoDebuggerDrags {
         this._val = { x: 0, y: 0 }
         pan.addListener((value) => this._val = value);
         this.panResponder = PanResponder.create({
-            onMoveShouldSetPanResponder: (evt, gestureState) => {
-                return !(gestureState.dx === 0 && gestureState.dy === 0)
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+                return Math.abs(gestureState.dx) > 8;
             },
-            onStartShouldSetPanResponder: (e, gesture) => true,
+            onStartShouldSetPanResponder: (e, gesture) => false,
             onPanResponderGrant: (e, gesture) => {
                 pan.setOffset({
                     x: this._val.x,

@@ -28,7 +28,7 @@ export default class App extends Component {
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
 
-    AvoDebugger.showDebugger({mode: "bar"});
+    AvoDebugger.showDebugger({mode: "bubble"});
     Avo.appOpened();
   }
 
