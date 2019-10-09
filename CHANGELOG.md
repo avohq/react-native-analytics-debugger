@@ -1,3 +1,12 @@
+## [1.1.9](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.8...1.1.9) (2019-10-09)
+
+
+### Bug Fixes
+
+* Show new events in the list and improve sorting ([a3332b5](https://github.com/avohq/react-native-analytics-debugger/commit/a3332b5)), closes [#6](https://github.com/avohq/react-native-analytics-debugger/issues/6) [#7](https://github.com/avohq/react-native-analytics-debugger/issues/7)
+
+
+
 ## [1.1.8](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.7...1.1.8) (2019-09-26)
 
 
