@@ -19,3 +19,9 @@ export function topOffset() {
 export function eventsHaveErrors(items) {
     return items.find(value => value.messages.length > 0) != null;
 }
+
+export function pad(num, size) {
+    var numString = String(num);
+    while (numString.length < (size || 2)) {numString = "0" + numString;}
+    return numString;
+}

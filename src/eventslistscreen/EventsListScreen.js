@@ -14,14 +14,28 @@ import {images} from '../images';
 import {topOffset, eventsHaveErrors} from '../utils';
 import {styles} from './EventsListScreenStyles';
 import {baseStyles} from '../BaseStyles';
+import AvoDebugger from '../AvoDebugger';
 
 export default class EventsListScreen extends Component {
   static logScreen = null;
 
-  static toggleDebuggerLogScreen = (items, newItemsCount) => {
+  static isVisible = () => {
+    return EventsListScreen.logScreen != null;
+  }
+
+  static updateDebuggerLogScreen = () => {
+    if (EventsListScreen.logScreen) {
+      EventsListScreen.logScreen.destroy();
+      EventsListScreen.logScreen = new RootSiblings(
+        <EventsListScreen items={AvoDebugger.items} />
+      );
+    }
+  }
+
+  static toggleDebuggerLogScreen = () => {
     if (EventsListScreen.logScreen == null) {
       EventsListScreen.logScreen = new RootSiblings(
-        <EventsListScreen items={items} newItemsCount={newItemsCount} />
+        <EventsListScreen items={AvoDebugger.items} />
       );
     } else {
       EventsListScreen.logScreen.destroy();
@@ -73,7 +87,7 @@ export default class EventsListScreen extends Component {
 
         <FlatList
           style={styles.list}
-          data={this.props.items.sort((a, b) => a.timestamp < b.timestamp)}
+          data={this.props.items.sort((a, b) => { return b.timestamp - a.timestamp })}
           renderItem={this.listRow}
         />
       </View>
@@ -112,6 +126,5 @@ EventsListScreen.propTypes = {
         })
       )
     })
-  ),
-  newItemsCount: PropTypes.number.isRequired
+  )
 };

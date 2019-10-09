@@ -4,7 +4,7 @@ import {Component} from 'react';
 import PropTypes from 'prop-types';
 import {images} from '../images';
 import {colors} from '../colors';
-import {eventsHaveErrors} from '../utils';
+import {eventsHaveErrors, pad} from '../utils';
 import {styles as barStyles} from '../avobar/AvoBarStyles';
 import {baseStyles} from '../BaseStyles';
 import {styles} from './EventListItemStyles';
@@ -40,10 +40,10 @@ export default class EventsListItem extends Component {
 
     const eventDate = new Date();
     eventDate.setTime(this.props.item.timestamp);
-    const hours = eventDate.getHours();
-    const minutes = eventDate.getMinutes();
-    const seconds = eventDate.getSeconds();
-    const ms = eventDate.getMilliseconds();
+    const hours = pad(eventDate.getHours(), 2);
+    const minutes = pad(eventDate.getMinutes(), 2);
+    const seconds = pad(eventDate.getSeconds(), 2);
+    const ms = pad(eventDate.getMilliseconds(), 3);
     eventTimeString = hours + ':' + minutes + ':' + seconds + '.' + ms;
 
     return (
@@ -115,7 +115,7 @@ export default class EventsListItem extends Component {
     let errorMessageView = null;
     if (error) {
       textColor = colors.error;
-      errorMessageView = this.boldifyErrorMessage(error);
+      errorMessageView = this.boldifyErrorMessage(prop.name, error);
     }
 
     return (
@@ -133,13 +133,13 @@ export default class EventsListItem extends Component {
     );
   }
 
-  boldifyErrorMessage(error) {
+  boldifyErrorMessage(propertyName, error) {
     if (!error.allowedTypes || !error.providedType) {
       return <Text style={styles.errorMessage}>{error.message}</Text>;
     }
 
-    let boldIndexes = [error.message.search(error.propertyId)];
-    let boldLengths = [error.propertyId.length];
+    let boldIndexes = [error.message.search(propertyName)];
+    let boldLengths = [propertyName.length];
 
     for (
       var allowedTypeIndex = 0;

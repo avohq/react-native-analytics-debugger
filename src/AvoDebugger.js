@@ -56,7 +56,11 @@ export default class AvoDebugger extends Component {
         userProps: userProperties
       });
       if (AvoDebugger.avo != null) {
-        AvoDebugger.avo.onNewEvent();
+        if (EventsListScreen.isVisible()) {
+          EventsListScreen.updateDebuggerLogScreen();
+        } else {
+          AvoDebugger.avo.onNewEvent();
+        }
       } else {
         AvoDebugger.unhandledNewItems.count += 1;
       }
@@ -115,10 +119,7 @@ export default class AvoDebugger extends Component {
         <TouchableOpacity
           onPress={() => {
             this.setState(() => ({unreadMessages: 0}));
-            EventsListScreen.toggleDebuggerLogScreen(
-              AvoDebugger.items,
-              this.state.unreadMessages
-            );
+            EventsListScreen.toggleDebuggerLogScreen();
           }}
         >
           <AvoBar
@@ -163,10 +164,7 @@ export default class AvoDebugger extends Component {
         <TouchableOpacity
           onPress={() => {
             this.setState(() => ({unreadMessages: 0}));
-            EventsListScreen.toggleDebuggerLogScreen(
-              AvoDebugger.items,
-              this.state.unreadMessages
-            );
+            EventsListScreen.toggleDebuggerLogScreen();
           }}
         >
           <AvoBubble
