@@ -20,6 +20,7 @@ export default class App extends Component {
       {},
       { make: function () { }, logEvent: function () { } }
     );
+    Avo.appOpened();
   }
 
   componentDidMount() {
@@ -29,7 +30,6 @@ export default class App extends Component {
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
 
     AvoDebugger.showDebugger({mode: "bubble"});
-    Avo.appOpened();
   }
 
   render() {
@@ -91,10 +91,10 @@ export default class App extends Component {
   onPlayPausePress = () => {
     if (this.state.playing === false) {
       this.player.play(this.playerStorage.trackAsset(this.state.currentTrackIndex));
-      Avo.play();
+      Avo.play({ currentSongName: this.playerStorage.trackName(this.state.currentTrackIndex) });
     } else {
       this.player.pause();
-      Avo.pause();
+      Avo.pause({ currentSongName: this.playerStorage.trackName(this.state.currentTrackIndex) });
     }
 
     this.setState(() => ({ playing: !this.state.playing }));
@@ -113,9 +113,11 @@ export default class App extends Component {
 
   onNextTrackPress = () => {
     if (this.playerStorage.hasNext(this.state.currentTrackIndex)) {
+      Avo.playNextTrack({currentSongName: this.playerStorage.trackName(this.state.currentTrackIndex),
+        upcomingTrackName: this.playerStorage.nextTrackName(this.state.currentTrackIndex)});
+
       this.player.stopAndUnload(() => {
         this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
-        Avo.playNextTrack();
       });
       this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex + 1 }));
     }
@@ -134,9 +136,11 @@ export default class App extends Component {
 
   onPrevTrackPress = () => {
     if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
+      Avo.playPreviousTrack({currentSongName: this.playerStorage.trackName(this.state.currentTrackIndex),
+        upcomingTrackName: this.playerStorage.prevTrackName(this.state.currentTrackIndex)});
+
       this.player.stopAndUnload(() => {
         this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
-        Avo.playPreviousTrack();
       });
       this.setState(() => ({ playing: false, currentTrackIndex: this.state.currentTrackIndex - 1 }));
     }

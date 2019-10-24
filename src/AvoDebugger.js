@@ -45,25 +45,23 @@ export default class AvoDebugger extends Component {
     eventProperties,
     userProperties
   ) => {
-    if (AvoDebugger.isEnabled()) {
-      AvoDebugger.items.push({
-        key: Math.random().toString(),
-        id: eventId,
-        timestamp: timestamp,
-        name: eventName,
-        messages: messages,
-        eventProps: eventProperties,
-        userProps: userProperties
-      });
-      if (AvoDebugger.avo != null) {
-        if (EventsListScreen.isVisible()) {
-          EventsListScreen.updateDebuggerLogScreen();
-        } else {
-          AvoDebugger.avo.onNewEvent();
-        }
+    AvoDebugger.items.push({
+      key: Math.random().toString(),
+      id: eventId,
+      timestamp: timestamp,
+      name: eventName,
+      messages: messages,
+      eventProps: eventProperties,
+      userProps: userProperties
+    });
+    if (AvoDebugger.avo != null) {
+      if (EventsListScreen.isVisible()) {
+        EventsListScreen.updateDebuggerLogScreen();
       } else {
-        AvoDebugger.unhandledNewItems.count += 1;
+        AvoDebugger.avo.onNewEvent();
       }
+    } else {
+      AvoDebugger.unhandledNewItems.count += 1;
     }
   };
 
