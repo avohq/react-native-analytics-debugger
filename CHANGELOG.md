@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.9...1.2.0) (2020-01-21)
+
+
+### Bug Fixes
+
+* **AvoDebugger.js and example project:** Allow sending events when the debugger is not shown and add ([0d6d798](https://github.com/avohq/react-native-analytics-debugger/commit/0d6d798))
+
+
+### Features
+
+* Release 1.1.10 with Debugger Started tracking ([b79dbe7](https://github.com/avohq/react-native-analytics-debugger/commit/b79dbe7))
+
+
+
 ## [1.1.9](https://github.com/avohq/react-native-analytics-debugger/compare/1.1.8...1.1.9) (2019-10-09)
 
 
