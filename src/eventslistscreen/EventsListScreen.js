@@ -43,7 +43,7 @@ export default class EventsListScreen extends Component {
     }
   };
 
-  componentWillMount() {
+  componentDidMount() {
     BackHandler.addEventListener(
       'hardwareBackPress',
       this.handleBackButtonClick

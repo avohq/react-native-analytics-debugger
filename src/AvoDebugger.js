@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, TouchableOpacity} from 'react-native';
+import {Animated, TouchableOpacity, Platform} from 'react-native';
 import {Component} from 'react';
 import RootSiblings from 'react-native-root-siblings';
 import EventsListScreen from './eventslistscreen/EventsListScreen';
@@ -14,6 +14,7 @@ export default class AvoDebugger extends Component {
   static rootSibling = null;
   static items = [];
   static unhandledNewItems = {count: 0};
+  static schemaId = "";
 
   static showDebugger = ({mode}) => {
     AvoDebugger.hideDebugger();
@@ -24,12 +25,13 @@ export default class AvoDebugger extends Component {
       <AvoDebugger isBar={isBar} ref={avoView => (AvoDebugger.avo = avoView)} />
     );
 
-      this.trackDebuggerStarted();
+    this.trackDebuggerStarted();
   };
 
   static trackDebuggerStarted = () => {
-    var pkg = require('./package.json');
-    var installationId = Expo.Constants.installationId;
+    let packageInfo = require('../package.json');
+    let installationId = Expo.Constants.installationId;
+    let platform = Platform.OS;
 
     fetch('https://api.avo.app/c/v1/track/', {
       method: 'POST',
@@ -41,9 +43,9 @@ export default class AvoDebugger extends Component {
         eventName: "Debugger Started",
         deviceId: installationId,
         eventProperties: {
-          client: 'React Native Debugger',
-          version: pkg.version,
-          schemaId: "",
+          client: "React Native Debugger (" + platform + ")",
+          version: packageInfo.version,
+          schemaId: this.schemaId,
         }}),
     });    
   }
@@ -93,9 +95,7 @@ export default class AvoDebugger extends Component {
 
   constructor(props) {
     super(props);
-  }
 
-  componentWillMount() {
     if (this.props.isBar) {
       this.drags.setupBarDrags(this.state.pan);
     } else {
