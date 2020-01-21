@@ -23,7 +23,30 @@ export default class AvoDebugger extends Component {
     AvoDebugger.rootSibling = new RootSiblings(
       <AvoDebugger isBar={isBar} ref={avoView => (AvoDebugger.avo = avoView)} />
     );
+
+      this.trackDebuggerStarted();
   };
+
+  static trackDebuggerStarted = () => {
+    var pkg = require('./package.json');
+    var installationId = Expo.Constants.installationId;
+
+    fetch('https://api.avo.app/c/v1/track/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        eventName: "Debugger Started",
+        deviceId: installationId,
+        eventProperties: {
+          client: 'React Native Debugger',
+          version: pkg.version,
+          schemaId: "",
+        }}),
+    });    
+  }
 
   static hideDebugger = () => {
     if (AvoDebugger.rootSibling != null) {
