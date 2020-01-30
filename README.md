@@ -54,6 +54,11 @@ AvoDebugger.showDebugger({mode: 'bar' // or 'bubble'})
 AvoDebugger.hideDebugger()
 ```
 
+5. Sending custom events
+```
+AvoDebugger.post(Date.now(), "Event", [{propertyId:"id0", message:"error in property 'event prop name' with id 'id0'"}], [{id:"id0", name:"event prop name", value:"val"}], [{id:"id1", name:"user prop name", value:"val"}]);
+```
+
 ## Caught a Bug?
 
 Thank you, you are precious to us :hug: Please send an email to friends@avo.app or file an issue here on GitHub.
