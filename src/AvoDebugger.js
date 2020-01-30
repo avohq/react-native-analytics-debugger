@@ -107,6 +107,16 @@ export default class AvoDebugger extends Component {
     return AvoDebugger.rootSibling !== null;
   };
 
+  static post = (
+    timestamp,
+    eventName,
+    errors,
+    eventProperties,
+    userProperties
+  ) => { 
+    AvoDebugger.postEvent("", timestamp, eventName, errors, eventProperties, userProperties);
+  }
+
   static postEvent = (
     eventId,
     timestamp,

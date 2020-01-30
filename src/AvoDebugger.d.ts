@@ -18,6 +18,15 @@ declare module 'react-native-analytics-debugger' {
       eventProperties: any[],
       userProperties: any[]
     ): void;
+
+    static post(
+      timestamp: number,
+      eventName: string,
+      errors: any[],
+      eventProperties: any[],
+      userProperties: any[]
+    ): void;
   }
 
+  export = AvoDebugger;
 }
