@@ -2,6 +2,8 @@ import {Component} from 'react';
 
 declare module 'react-native-analytics-debugger' {
   class AvoDebugger extends Component {
+    static schemaId: string;
+    
     static showDebugger({mode}: {mode: 'bar' | 'bubble'}): void;
 
     static hideDebugger(): void;
