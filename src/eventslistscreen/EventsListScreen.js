@@ -14,10 +14,11 @@ import {images} from '../images';
 import {topOffset, eventsHaveErrors} from '../utils';
 import {styles} from './EventsListScreenStyles';
 import {baseStyles} from '../BaseStyles';
-import AvoDebugger from '../AvoDebugger';
 
 export default class EventsListScreen extends Component {
   static logScreen = null;
+
+  static items = [];
 
   static isVisible = () => {
     return EventsListScreen.logScreen != null;
@@ -27,7 +28,7 @@ export default class EventsListScreen extends Component {
     if (EventsListScreen.logScreen) {
       EventsListScreen.logScreen.destroy();
       EventsListScreen.logScreen = new RootSiblings(
-        <EventsListScreen items={AvoDebugger.items} />
+        <EventsListScreen items={EventsListScreen.items} />
       );
     }
   }
@@ -35,7 +36,7 @@ export default class EventsListScreen extends Component {
   static toggleDebuggerLogScreen = () => {
     if (EventsListScreen.logScreen == null) {
       EventsListScreen.logScreen = new RootSiblings(
-        <EventsListScreen items={AvoDebugger.items} />
+        <EventsListScreen items={EventsListScreen.items} />
       );
     } else {
       EventsListScreen.logScreen.destroy();

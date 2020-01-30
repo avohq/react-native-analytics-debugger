@@ -20,5 +20,4 @@ declare module 'react-native-analytics-debugger' {
     ): void;
   }
 
-  export = AvoDebugger;
 }

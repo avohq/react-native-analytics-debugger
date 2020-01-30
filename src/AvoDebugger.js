@@ -12,7 +12,6 @@ import {eventsHaveErrors} from './utils';
 export default class AvoDebugger extends Component {
   static avo = null;
   static rootSibling = null;
-  static items = [];
   static unhandledNewItems = {count: 0};
   static schemaId = "";
 
@@ -58,7 +57,7 @@ export default class AvoDebugger extends Component {
     if (Platform.OS === 'ios') {
       let id = Settings.get('avo_debugger_device_id');
       if (id == null) {
-        id = generateInstallationId();
+        id = AvoDebugger.generateInstallationId();
         Settings.set({avo_debugger_device_id:id});
       }
       installationId = id;
@@ -116,7 +115,7 @@ export default class AvoDebugger extends Component {
     eventProperties,
     userProperties
   ) => {
-    AvoDebugger.items.push({
+    EventsListScreen.items.push({
       key: Math.random().toString(),
       id: eventId,
       timestamp: timestamp,
@@ -200,7 +199,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemName() {
-    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
+    let lastItem = EventsListScreen.items[EventsListScreen.items.length - 1];
     if (lastItem) {
       return lastItem.name;
     } else {
@@ -209,7 +208,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemTimestamp() {
-    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
+    let lastItem = EventsListScreen.items[EventsListScreen.items.length - 1];
     if (lastItem) {
       return lastItem.timestamp;
     } else {
@@ -244,9 +243,9 @@ export default class AvoDebugger extends Component {
   }
 
   hasNewErrors() {
-    let start = AvoDebugger.items.length - this.state.unreadMessages;
-    let end = AvoDebugger.items.length;
-    let newItems = AvoDebugger.items.slice(start, end);
+    let start = EventsListScreen.items.length - this.state.unreadMessages;
+    let end = EventsListScreen.items.length;
+    let newItems = EventsListScreen.items.slice(start, end);
     return eventsHaveErrors(newItems);
   }
 }
