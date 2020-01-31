@@ -19,12 +19,12 @@ declare module 'react-native-analytics-debugger' {
       userProperties: any[]
     ): void;
 
+    // Simplified interface for posting events manually
     static post(
       timestamp: number,
       eventName: string,
-      errors: any[],
       eventProperties: any[],
-      userProperties: any[]
+      errors: any[]
     ): void;
   }
 

@@ -24,14 +24,14 @@ export default function AvoBubble(props) {
 
     if (props.newItems > 0) {
         let itemsCounter = props.newItems;
-        if (Platform.OS == 'android' && itemsCounter > 999) {
+        if (Platform.OS === 'android' && itemsCounter > 999) {
             itemsCounter = "...";
         }
         return (
             <View style={styles.mainImage}>
                 <Image source={mainImage} style={styles.mainImage} />
                 <ImageBackground style={styles.badge} source={badgeBackground}>
-                    <Text adjustsFontSizeToFit={Platform.OS == 'ios'}
+                    <Text adjustsFontSizeToFit={Platform.OS === 'ios'}
                         ellipsizeMode={'tail'} numberOfLines={1}
                         style={[styles.messageCounter, { color: textColor }]}>{itemsCounter}</Text>
                 </ImageBackground>

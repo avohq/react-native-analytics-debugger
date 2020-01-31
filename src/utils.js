@@ -6,7 +6,7 @@ export function topOffset() {
 
         let possibleDimensions = [812, 896];
 
-        let isCorrectDimension = possibleDimensions.filter(dimension => dimen.height == dimension || dimen.width == dimension).length > 0;
+        let isCorrectDimension = possibleDimensions.filter(dimension => dimen.height === dimension || dimen.width === dimension).length > 0;
 
         if (isCorrectDimension) {
             return 48;
@@ -17,7 +17,7 @@ export function topOffset() {
 }
 
 export function eventsHaveErrors(items) {
-    return items.find(value => value.messages.length > 0) != null;
+    return items.find(value => value.messages.length > 0) !== undefined;
 }
 
 export function pad(num, size) {

@@ -21,7 +21,7 @@ export default class EventsListScreen extends Component {
   static items = [];
 
   static isVisible = () => {
-    return EventsListScreen.logScreen != null;
+    return EventsListScreen.logScreen !== null;
   }
 
   static updateDebuggerLogScreen = () => {
@@ -34,7 +34,7 @@ export default class EventsListScreen extends Component {
   }
 
   static toggleDebuggerLogScreen = () => {
-    if (EventsListScreen.logScreen == null) {
+    if (EventsListScreen.logScreen === null) {
       EventsListScreen.logScreen = new RootSiblings(
         <EventsListScreen items={EventsListScreen.items} />
       );

@@ -8,6 +8,7 @@ import {styles} from './AvoDebuggerStyles';
 import AvoDebuggerDrags from './AvoDebuggerDrags';
 import AvoBar from './avobar/AvoBar';
 import {eventsHaveErrors} from './utils';
+import PropTypes from 'prop-types';
 
 export default class AvoDebugger extends Component {
   static avo = null;
@@ -56,7 +57,7 @@ export default class AvoDebugger extends Component {
     var installationId = Platform.OS;
     if (Platform.OS === 'ios') {
       let id = Settings.get('avo_debugger_device_id');
-      if (id == null) {
+      if (id === null) {
         id = AvoDebugger.generateInstallationId();
         Settings.set({avo_debugger_device_id:id});
       }
@@ -65,7 +66,7 @@ export default class AvoDebugger extends Component {
     } else if (Platform.OS === 'android') {
       AsyncStorage.getItem('avo_debugger_device_id').then((id) => {         
     
-        if (id == null) {
+        if (id === null) {
           id = AvoDebugger.generateInstallationId();
           AsyncStorage.setItem('avo_debugger_device_id', id);
         }
@@ -96,7 +97,7 @@ export default class AvoDebugger extends Component {
   }
 
   static hideDebugger = () => {
-    if (AvoDebugger.rootSibling != null) {
+    if (AvoDebugger.rootSibling !== null) {
       AvoDebugger.rootSibling.destroy();
       AvoDebugger.rootSibling = null;
       AvoDebugger.avo = null;
@@ -107,14 +108,14 @@ export default class AvoDebugger extends Component {
     return AvoDebugger.rootSibling !== null;
   };
 
+  // Simplified interface for posting events manually
   static post = (
     timestamp,
     eventName,
-    errors,
-    eventProperties,
-    userProperties
+    properties,
+    errors
   ) => { 
-    AvoDebugger.postEvent("", timestamp, eventName, errors, eventProperties, userProperties);
+    AvoDebugger.postEvent("", timestamp, eventName, errors, properties, []);
   }
 
   static postEvent = (
@@ -134,7 +135,7 @@ export default class AvoDebugger extends Component {
       eventProps: eventProperties,
       userProps: userProperties
     });
-    if (AvoDebugger.avo != null) {
+    if (AvoDebugger.avo !== null) {
       if (EventsListScreen.isVisible()) {
         EventsListScreen.updateDebuggerLogScreen();
       } else {
@@ -160,7 +161,7 @@ export default class AvoDebugger extends Component {
 
   componentDidMount() {
     this.setState(
-      prevState => ({unreadMessages: AvoDebugger.unhandledNewItems.count}),
+      () => ({unreadMessages: AvoDebugger.unhandledNewItems.count}),
       () => {
         AvoDebugger.unhandledNewItems.count = 0;
       }
@@ -259,3 +260,7 @@ export default class AvoDebugger extends Component {
     return eventsHaveErrors(newItems);
   }
 }
+
+AvoDebugger.propTypes = {
+  isBar: PropTypes.bool.isRequired
+};

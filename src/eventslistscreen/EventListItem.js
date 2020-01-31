@@ -176,7 +176,7 @@ export default class EventsListItem extends Component {
       );
     }
 
-    if (boldIndex != 0) {
+    if (boldIndex !== 0) {
       startIndex = boldIndexes[boldIndex - 1] + boldLengths[boldIndex - 1];
     }
     styledTextParts.push(
