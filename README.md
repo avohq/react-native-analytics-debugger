@@ -56,7 +56,7 @@ AvoDebugger.hideDebugger()
 
 5. Sending custom events
 ```
-AvoDebugger.post(Date.now(), "Event", [{propertyId:"id0", message:"error in property 'event prop name' with id 'id0'"}], [{id:"id0", name:"event prop name", value:"val"}], [{id:"id1", name:"user prop name", value:"val"}]);
+AvoDebugger.post(Date.now(), "Test Event", [{id:"id0", name:"prop 0 name", value:"val 0"}, {id:"id1", name:"prop 1 name", value:"val 1"}], [{propertyId:"id0", message:"error in prop 0 with id0"}]);
 ```
 
 ## Caught a Bug?
