@@ -28,8 +28,6 @@ export default class App extends Component {
       this.setState(() => ({ time: status.positionMillis / 1000, duration: status.durationMillis / 1000 }));
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
-
-    AvoDebugger.showDebugger({mode: "bubble"});
   }
 
   render() {
