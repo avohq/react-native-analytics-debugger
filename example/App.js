@@ -29,7 +29,7 @@ export default class App extends Component {
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
 
-  //  AvoDebugger.showDebugger({mode: "bubble"});
+    AvoDebugger.showDebugger({mode: "bubble"});
   }
 
   render() {
