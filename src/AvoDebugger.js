@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, TouchableOpacity, Platform} from 'react-native';
+import {Animated, TouchableOpacity, Platform, Settings, AsyncStorage} from 'react-native';
 import {Component} from 'react';
 import RootSiblings from 'react-native-root-siblings';
 import EventsListScreen from './eventslistscreen/EventsListScreen';
@@ -8,11 +8,11 @@ import {styles} from './AvoDebuggerStyles';
 import AvoDebuggerDrags from './AvoDebuggerDrags';
 import AvoBar from './avobar/AvoBar';
 import {eventsHaveErrors} from './utils';
+import PropTypes from 'prop-types';
 
 export default class AvoDebugger extends Component {
   static avo = null;
   static rootSibling = null;
-  static items = [];
   static unhandledNewItems = {count: 0};
   static schemaId = "";
 
@@ -28,11 +28,56 @@ export default class AvoDebugger extends Component {
     this.trackDebuggerStarted();
   };
 
+  static generateInstallationId = () => {
+    var uuid = function(a) {
+      return a           // if the placeholder was passed, return
+          ? (              // a random number from 0 to 15
+          a ^            // unless b is 8,
+          Math.random()  // in which case
+          * 16           // a random number from
+          >> a / 4         // 8 to 11
+          ).toString(16) // in hexadecimal
+          : (              // or otherwise a concatenated string:
+          [1e7] +        // 10000000 +
+          -1e3 +         // -1000 +
+          -4e3 +         // -4000 +
+          -8e3 +         // -80000000 +
+          -1e11          // -100000000000,
+          ).replace(     // replacing
+          /[018]/g,    // zeroes, ones, and eights with
+          uuid         // random hex digits
+      );
+    };
+    return uuid() + 'R';
+  }
+
   static trackDebuggerStarted = () => {
     let packageInfo = require('../package.json');
-    let installationId = Expo.Constants.installationId;
-    let platform = Platform.OS;
 
+    var installationId = Platform.OS;
+    if (Platform.OS === 'ios') {
+      let id = Settings.get('avo_debugger_device_id');
+      if (id === null) {
+        id = AvoDebugger.generateInstallationId();
+        Settings.set({avo_debugger_device_id:id});
+      }
+      installationId = id;
+      AvoDebugger.callTrackDebuggerStarted(installationId, packageInfo);  
+    } else if (Platform.OS === 'android') {
+      AsyncStorage.getItem('avo_debugger_device_id').then((id) => {         
+    
+        if (id === null) {
+          id = AvoDebugger.generateInstallationId();
+          AsyncStorage.setItem('avo_debugger_device_id', id);
+        }
+        installationId = id;
+        AvoDebugger.callTrackDebuggerStarted(installationId, packageInfo);  
+      });
+    }  
+  }
+
+  static callTrackDebuggerStarted(installationId, packageInfo) {
+    let platform = Platform.OS;
     fetch('https://api.avo.app/c/v1/track/', {
       method: 'POST',
       headers: {
@@ -46,12 +91,13 @@ export default class AvoDebugger extends Component {
           client: "React Native Debugger (" + platform + ")",
           version: packageInfo.version,
           schemaId: this.schemaId,
-        }}),
-    });    
+        }
+      }),
+    });
   }
 
   static hideDebugger = () => {
-    if (AvoDebugger.rootSibling != null) {
+    if (AvoDebugger.rootSibling !== null) {
       AvoDebugger.rootSibling.destroy();
       AvoDebugger.rootSibling = null;
       AvoDebugger.avo = null;
@@ -62,6 +108,16 @@ export default class AvoDebugger extends Component {
     return AvoDebugger.rootSibling !== null;
   };
 
+  // Simplified interface for posting events manually
+  static post = (
+    timestamp,
+    eventName,
+    properties,
+    errors
+  ) => { 
+    AvoDebugger.postEvent("", timestamp, eventName, errors, properties, []);
+  }
+
   static postEvent = (
     eventId,
     timestamp,
@@ -70,7 +126,7 @@ export default class AvoDebugger extends Component {
     eventProperties,
     userProperties
   ) => {
-    AvoDebugger.items.push({
+    EventsListScreen.items.push({
       key: Math.random().toString(),
       id: eventId,
       timestamp: timestamp,
@@ -79,7 +135,7 @@ export default class AvoDebugger extends Component {
       eventProps: eventProperties,
       userProps: userProperties
     });
-    if (AvoDebugger.avo != null) {
+    if (AvoDebugger.avo !== null) {
       if (EventsListScreen.isVisible()) {
         EventsListScreen.updateDebuggerLogScreen();
       } else {
@@ -105,7 +161,7 @@ export default class AvoDebugger extends Component {
 
   componentDidMount() {
     this.setState(
-      prevState => ({unreadMessages: AvoDebugger.unhandledNewItems.count}),
+      () => ({unreadMessages: AvoDebugger.unhandledNewItems.count}),
       () => {
         AvoDebugger.unhandledNewItems.count = 0;
       }
@@ -154,7 +210,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemName() {
-    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
+    let lastItem = EventsListScreen.items[EventsListScreen.items.length - 1];
     if (lastItem) {
       return lastItem.name;
     } else {
@@ -163,7 +219,7 @@ export default class AvoDebugger extends Component {
   }
 
   lastItemTimestamp() {
-    let lastItem = AvoDebugger.items[AvoDebugger.items.length - 1];
+    let lastItem = EventsListScreen.items[EventsListScreen.items.length - 1];
     if (lastItem) {
       return lastItem.timestamp;
     } else {
@@ -198,9 +254,13 @@ export default class AvoDebugger extends Component {
   }
 
   hasNewErrors() {
-    let start = AvoDebugger.items.length - this.state.unreadMessages;
-    let end = AvoDebugger.items.length;
-    let newItems = AvoDebugger.items.slice(start, end);
+    let start = EventsListScreen.items.length - this.state.unreadMessages;
+    let end = EventsListScreen.items.length;
+    let newItems = EventsListScreen.items.slice(start, end);
     return eventsHaveErrors(newItems);
   }
 }
+
+AvoDebugger.propTypes = {
+  isBar: PropTypes.bool.isRequired
+};
