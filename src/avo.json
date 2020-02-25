@@ -1,0 +1,23 @@
+{
+  "avo": {
+    "version": 1
+  },
+  "schema": {
+    "id": "fwtXqAc0fCLy7b7oGW40",
+    "name": "Avo"
+  },
+  "branch": {
+    "id": "LowQacyet",
+    "name": "mobile-debugger-started"
+  },
+  "sources": [
+    {
+      "id": "RMmNd_AIl",
+      "name": "React Native Mobile Debugger",
+      "path": "Avo.js",
+      "actionId": "P154NQSkhKXTz2HFu6eS",
+      "branchId": "LowQacyet",
+      "updatedAt": "2020-02-24T11:59:33.306Z"
+    }
+  ]
+}
