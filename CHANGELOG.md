@@ -1,3 +1,7 @@
+## [1.2.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.1...1.2.2) (2020-02-25)
+
+
+
 ## [1.2.1](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.0...1.2.1) (2020-02-03)
 
 
