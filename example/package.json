@@ -14,10 +14,12 @@
     "react-dom": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
     "react-native-analytics-debugger": "file:../",
-    "react-native-web": "^0.11.7"
+    "react-native-web": "^0.11.7",
+    "avo-inspector": "file:../../../web/web-avo-inspector"
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.0.0"
+    "babel-preset-expo": "^8.0.0",
+    "jest": "^25.5.1"
   },
   "private": true
 }

@@ -4,6 +4,7 @@ import MusicStorage from './MusicStorage';
 import Player from './Player';
 import AvoDebugger from 'react-native-analytics-debugger';
 import Avo from './Avo';
+import * as Inspector from 'avo-inspector';
 
 export default class App extends Component {
 
@@ -14,11 +15,20 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
+
+    let inspector = new Inspector.AvoInspector({ apiKey: "AYytYzAOPvJh1XZfy8yj", env: "dev", version: "v1", appName: "Debugger test app" });
+
+    inspector.enableLogging(true);
+
     Avo.initAvo(
-      { env: 'dev', debugger: AvoDebugger },
+      { env: 'dev', debugger: AvoDebugger},
       {},
       {},
-      { make: function () { }, logEvent: function () { } }
+      { make: function () { }, logEvent: function (eventName) { 
+
+        inspector.trackSchemaFromEvent(eventName, [])
+
+      } }
     );
     Avo.appOpened();
   }
@@ -28,6 +38,8 @@ export default class App extends Component {
       this.setState(() => ({ time: status.positionMillis / 1000, duration: status.durationMillis / 1000 }));
     })
     this.player.load(this.playerStorage.trackAsset(this.state.currentTrackIndex));
+
+    AvoDebugger.showDebugger({mode: "bar"});
   }
 
   render() {
