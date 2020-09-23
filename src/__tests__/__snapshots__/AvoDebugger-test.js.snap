@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avo Debugger Renders correctly in Bar mode 1`] = `null`;
+
+exports[`Avo Debugger Renders correctly in Bubble mode 1`] = `null`;

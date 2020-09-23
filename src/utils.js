@@ -17,7 +17,7 @@ export function topOffset() {
 }
 
 export function eventsHaveErrors(items) {
-    return items.find(value => value.messages.length > 0) !== undefined;
+    return items.find(value => value.messages && value.messages.length > 0) !== undefined;
 }
 
 export function pad(num, size) {

@@ -44,7 +44,7 @@ export default class EventsListItem extends Component {
     const minutes = pad(eventDate.getMinutes(), 2);
     const seconds = pad(eventDate.getSeconds(), 2);
     const ms = pad(eventDate.getMilliseconds(), 3);
-    eventTimeString = hours + ':' + minutes + ':' + seconds + '.' + ms;
+    const eventTimeString = hours + ':' + minutes + ':' + seconds + '.' + ms;
 
     return (
       <View style={[barStyles.container, {backgroundColor: backgroundColor}]}>
