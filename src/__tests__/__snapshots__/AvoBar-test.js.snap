@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvoBar Renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      },
+      Object {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 52,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/tick.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 8,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#666666",
+            },
+          ]
+        }
+      >
+        0:0:0.0
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#000000",
+            },
+          ]
+        }
+      >
+        test-name
+      </Text>
+    </View>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/drag_handle_dark.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`AvoBar Renders correctly with error 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      },
+      Object {
+        "backgroundColor": "#D94553",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 52,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/warning.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 8,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#DDDDDD",
+            },
+          ]
+        }
+      >
+        0:0:0.0
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#FFFFFF",
+            },
+          ]
+        }
+      >
+        test-name
+      </Text>
+    </View>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/drag_handle_light.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`AvoBar Renders correctly without props set 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      },
+      Object {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 52,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/tick.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 8,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#666666",
+            },
+          ]
+        }
+      >
+        NaN:NaN:NaN.NaN
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#000000",
+            },
+          ]
+        }
+      />
+    </View>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/drag_handle_dark.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+</View>
+`;

@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvoBubble Renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/img/avo_bubble.png",
+      }
+    }
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  />
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "height": 24,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "width": 24,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/badge_green.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      adjustsFontSizeToFit={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "fontSize": 9,
+            "paddingBottom": 4,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+          },
+          Object {
+            "color": "#FFFFFF",
+          },
+        ]
+      }
+    >
+      4
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`AvoBubble Renders correctly with error 1`] = `
+<View
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/img/avo_bubble_error.png",
+      }
+    }
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  />
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "height": 24,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "width": 24,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/badge_white.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      adjustsFontSizeToFit={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "fontSize": 9,
+            "paddingBottom": 4,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+          },
+          Object {
+            "color": "#D94553",
+          },
+        ]
+      }
+    >
+      4
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`AvoBubble Renders correctly without new items 1`] = `
+<View>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/img/avo_bubble.png",
+      }
+    }
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`AvoBubble Renders correctly without props set 1`] = `
+<View>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/img/avo_bubble.png",
+      }
+    }
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  />
+</View>
+`;

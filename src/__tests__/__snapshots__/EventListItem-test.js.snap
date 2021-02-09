@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventListItem Renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      },
+      Object {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 52,
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/red_warning.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 8,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#666666",
+            },
+          ]
+        }
+      >
+        00:00:00.000
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#D94553",
+            },
+          ]
+        }
+      >
+        test-name
+      </Text>
+    </View>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/expend_arrow.png",
+        }
+      }
+      style={
+        Object {
+          "height": 6,
+          "margin": 19,
+          "width": 10,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`EventListItem Renders correctly when expanded 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      },
+      Object {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 52,
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/red_warning.png",
+        }
+      }
+      style={
+        Object {
+          "height": 16,
+          "margin": 16,
+          "resizeMode": "contain",
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 8,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#666666",
+            },
+          ]
+        }
+      >
+        00:00:00.000
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#D94553",
+            },
+          ]
+        }
+      >
+        test-name
+      </Text>
+    </View>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/collapse_arrow.png",
+        }
+      }
+      style={
+        Object {
+          "height": 6,
+          "margin": 19,
+          "width": 10,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "marginEnd": 16,
+        "marginStart": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": 32,
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 12,
+                "fontWeight": "bold",
+              },
+              Object {
+                "color": "#D94553",
+              },
+            ]
+          }
+        >
+          prop 0 name
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 12,
+              },
+              Object {
+                "color": "#D94553",
+              },
+            ]
+          }
+        >
+          val 0
+        </Text>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#D94553",
+            "fontSize": 10,
+            "marginBottom": 16,
+          }
+        }
+      >
+        error in prop 0 with id0
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#E3E3E3",
+          "height": 1,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": 32,
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 12,
+                "fontWeight": "bold",
+              },
+              Object {
+                "color": "#333333",
+              },
+            ]
+          }
+        >
+          prop 1 name
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 12,
+              },
+              Object {
+                "color": "#333333",
+              },
+            ]
+          }
+        >
+          val 1
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+</View>
+`;

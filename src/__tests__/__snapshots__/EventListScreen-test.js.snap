@@ -1,0 +1,933 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventListScreen Renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "bottom": 0,
+        "flex": 1,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "marginTop": undefined,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 48,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/avo_logo.png",
+        }
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 48,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 48,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/img/close_button.png",
+          }
+        }
+        style={
+          Object {
+            "height": 10,
+            "marginLeft": 19,
+            "marginTop": 19,
+            "width": 10,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#E3E3E3",
+        "height": 1,
+      }
+    }
+  />
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "eventProps": Array [
+            Object {
+              "id": "id0",
+              "name": "prop 0 name",
+              "value": "val 0",
+            },
+            Object {
+              "id": "id1",
+              "name": "prop 1 name",
+              "value": "val 1",
+            },
+          ],
+          "id": "id-2",
+          "key": "key-2",
+          "messages": Array [
+            Object {
+              "message": "error in prop 0 with id0",
+              "propertyId": "id0",
+            },
+          ],
+          "name": "test-name",
+          "timestamp": 1602795600000,
+          "userProps": Array [],
+        },
+        Object {
+          "eventProps": Array [
+            Object {
+              "id": "id0",
+              "name": "prop 0 name",
+              "value": "val 0",
+            },
+            Object {
+              "id": "id1",
+              "name": "prop 1 name",
+              "value": "val 1",
+            },
+          ],
+          "id": "id-0",
+          "key": "key-0",
+          "messages": Array [
+            Object {
+              "message": "error in prop 0 with id0",
+              "propertyId": "id0",
+            },
+          ],
+          "name": "test-name",
+          "timestamp": 1602752676000,
+          "userProps": Array [],
+        },
+        Object {
+          "eventProps": Array [
+            Object {
+              "id": "id0",
+              "name": "prop 0 name",
+              "value": "val 0",
+            },
+            Object {
+              "id": "id1",
+              "name": "prop 1 name",
+              "value": "val 1",
+            },
+          ],
+          "id": "id-1",
+          "key": "key-1",
+          "messages": Array [
+            Object {
+              "message": "error in prop 0 with id0",
+              "propertyId": "id0",
+            },
+          ],
+          "name": "test-name",
+          "timestamp": 1602752675000,
+          "userProps": Array [],
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "height": 52,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/red_warning.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 16,
+                  "margin": 16,
+                  "resizeMode": "contain",
+                  "width": 16,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 8,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 8,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#666666",
+                    },
+                  ]
+                }
+              >
+                00:00:00.000
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#D94553",
+                    },
+                  ]
+                }
+              >
+                test-name
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/collapse_arrow.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 6,
+                  "margin": 19,
+                  "width": 10,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "marginEnd": 16,
+                "marginStart": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  prop 0 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  val 0
+                </Text>
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#D94553",
+                    "fontSize": 10,
+                    "marginBottom": 16,
+                  }
+                }
+              >
+                error in prop 0 with id0
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#E3E3E3",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  prop 1 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  val 1
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#E3E3E3",
+                "height": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "height": 52,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/red_warning.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 16,
+                  "margin": 16,
+                  "resizeMode": "contain",
+                  "width": 16,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 8,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 8,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#666666",
+                    },
+                  ]
+                }
+              >
+                12:04:36.000
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#D94553",
+                    },
+                  ]
+                }
+              >
+                test-name
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/collapse_arrow.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 6,
+                  "margin": 19,
+                  "width": 10,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "marginEnd": 16,
+                "marginStart": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  prop 0 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  val 0
+                </Text>
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#D94553",
+                    "fontSize": 10,
+                    "marginBottom": 16,
+                  }
+                }
+              >
+                error in prop 0 with id0
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#E3E3E3",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  prop 1 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  val 1
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#E3E3E3",
+                "height": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "height": 52,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/red_warning.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 16,
+                  "margin": 16,
+                  "resizeMode": "contain",
+                  "width": 16,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 8,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 8,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#666666",
+                    },
+                  ]
+                }
+              >
+                12:04:35.000
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "textAlignVertical": "center",
+                    },
+                    Object {
+                      "color": "#D94553",
+                    },
+                  ]
+                }
+              >
+                test-name
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/img/collapse_arrow.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 6,
+                  "margin": 19,
+                  "width": 10,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "marginEnd": 16,
+                "marginStart": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  prop 0 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#D94553",
+                      },
+                    ]
+                  }
+                >
+                  val 0
+                </Text>
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#D94553",
+                    "fontSize": 10,
+                    "marginBottom": 16,
+                  }
+                }
+              >
+                error in prop 0 with id0
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#E3E3E3",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 32,
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  prop 1 name
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#333333",
+                      },
+                    ]
+                  }
+                >
+                  val 1
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#E3E3E3",
+                "height": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

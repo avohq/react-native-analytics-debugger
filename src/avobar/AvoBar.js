@@ -39,7 +39,7 @@ export default function AvoBar(props) {
     const minutes = eventDate.getMinutes();
     const seconds = eventDate.getSeconds();
     const ms = eventDate.getMilliseconds();
-    eventTimeString = hours + ":" + minutes + ":" + seconds + '.' + ms;
+    const eventTimeString = hours + ":" + minutes + ":" + seconds + '.' + ms;
 
     return (
         <View style={[styles.container, {backgroundColor: backgroundColor}]}>
