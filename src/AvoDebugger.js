@@ -1,5 +1,6 @@
 import React from 'react';
-import {Animated, TouchableOpacity, Platform, Settings, AsyncStorage} from 'react-native';
+import {Animated, TouchableOpacity, Platform, Settings} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Component} from 'react';
 import RootSiblings from 'react-native-root-siblings';
 import EventsListScreen from './eventslistscreen/EventsListScreen';
