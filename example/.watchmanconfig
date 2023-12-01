@@ -1,4 +1,0 @@
-{
-  "ignore_dirs": ["./node_modules"],
-  "content_hash_max_items": 500000
-}

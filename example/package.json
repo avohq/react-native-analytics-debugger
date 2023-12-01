@@ -1,25 +1,27 @@
 {
+  "name": "example",
+  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^36.0.0",
-    "expo-av": "~8.0.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "expo": "~49.0.15",
+    "expo-av": "~13.4.1",
+    "react": "18.2.0",
+    "react-native": "0.72.6",
     "react-native-analytics-debugger": "file:../",
-    "react-native-web": "^0.11.7",
-    "avo-inspector": "file:../../../web/web-avo-inspector"
+    "react-native-avo-inspector": "^1.2.10"
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.0.0",
-    "jest": "^25.5.1"
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.1.6"
+  },
+  "resolutions": {
+    "@react-native-async-storage/async-storage": "^1.20.0"
   },
   "private": true
 }

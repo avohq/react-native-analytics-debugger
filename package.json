@@ -21,7 +21,7 @@
   "main": "src/AvoDebugger.js",
   "types": "src/AvoDebugger.d.ts",
   "engines": {
-    "node": ">=6"
+    "node": ">=14"
   },
   "scripts": {
     "commit": "git-cz",
@@ -48,6 +48,6 @@
     "react-test-renderer": "18.0.0"
   },
   "peerDependencies": {
-    "react-native": "^0.69.0"
+    "react-native": ">= 0.69"
   }
 }
