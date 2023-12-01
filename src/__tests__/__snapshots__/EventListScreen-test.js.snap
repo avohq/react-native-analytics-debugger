@@ -109,7 +109,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             },
           ],
           "name": "test-name",
-          "timestamp": 1602795600000,
+          "timestamp": 1602806400000,
           "userProps": Array [],
         },
         Object {
@@ -134,7 +134,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             },
           ],
           "name": "test-name",
-          "timestamp": 1602752676000,
+          "timestamp": 1602763476000,
           "userProps": Array [],
         },
         Object {
@@ -159,7 +159,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             },
           ],
           "name": "test-name",
-          "timestamp": 1602752675000,
+          "timestamp": 1602763475000,
           "userProps": Array [],
         },
       ]

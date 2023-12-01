@@ -3,12 +3,12 @@
 exports[`AvoBar Renders correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flex": 1,
       },
-      Object {
+      {
         "backgroundColor": "#FFFFFF",
       },
     ]
@@ -16,7 +16,7 @@ exports[`AvoBar Renders correctly 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -25,7 +25,7 @@ exports[`AvoBar Renders correctly 1`] = `
   />
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "row",
@@ -35,12 +35,12 @@ exports[`AvoBar Renders correctly 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/tick.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -50,7 +50,7 @@ exports[`AvoBar Renders correctly 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flex": 1,
           "marginLeft": 8,
         }
@@ -58,13 +58,13 @@ exports[`AvoBar Renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 8,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#666666",
             },
           ]
@@ -74,13 +74,13 @@ exports[`AvoBar Renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 16,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#000000",
             },
           ]
@@ -91,12 +91,12 @@ exports[`AvoBar Renders correctly 1`] = `
     </View>
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/drag_handle_dark.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -107,7 +107,7 @@ exports[`AvoBar Renders correctly 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -120,12 +120,12 @@ exports[`AvoBar Renders correctly 1`] = `
 exports[`AvoBar Renders correctly with error 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flex": 1,
       },
-      Object {
+      {
         "backgroundColor": "#D94553",
       },
     ]
@@ -133,7 +133,7 @@ exports[`AvoBar Renders correctly with error 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -142,7 +142,7 @@ exports[`AvoBar Renders correctly with error 1`] = `
   />
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "row",
@@ -152,12 +152,12 @@ exports[`AvoBar Renders correctly with error 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/warning.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -167,7 +167,7 @@ exports[`AvoBar Renders correctly with error 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flex": 1,
           "marginLeft": 8,
         }
@@ -175,13 +175,13 @@ exports[`AvoBar Renders correctly with error 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 8,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#DDDDDD",
             },
           ]
@@ -191,13 +191,13 @@ exports[`AvoBar Renders correctly with error 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 16,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#FFFFFF",
             },
           ]
@@ -208,12 +208,12 @@ exports[`AvoBar Renders correctly with error 1`] = `
     </View>
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/drag_handle_light.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -224,7 +224,7 @@ exports[`AvoBar Renders correctly with error 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -237,12 +237,12 @@ exports[`AvoBar Renders correctly with error 1`] = `
 exports[`AvoBar Renders correctly without props set 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flex": 1,
       },
-      Object {
+      {
         "backgroundColor": "#FFFFFF",
       },
     ]
@@ -250,7 +250,7 @@ exports[`AvoBar Renders correctly without props set 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -259,7 +259,7 @@ exports[`AvoBar Renders correctly without props set 1`] = `
   />
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "row",
@@ -269,12 +269,12 @@ exports[`AvoBar Renders correctly without props set 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/tick.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -284,7 +284,7 @@ exports[`AvoBar Renders correctly without props set 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flex": 1,
           "marginLeft": 8,
         }
@@ -292,13 +292,13 @@ exports[`AvoBar Renders correctly without props set 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 8,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#666666",
             },
           ]
@@ -308,13 +308,13 @@ exports[`AvoBar Renders correctly without props set 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 16,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#000000",
             },
           ]
@@ -323,12 +323,12 @@ exports[`AvoBar Renders correctly without props set 1`] = `
     </View>
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/drag_handle_dark.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -339,7 +339,7 @@ exports[`AvoBar Renders correctly without props set 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
