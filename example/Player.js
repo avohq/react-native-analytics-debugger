@@ -1,47 +1,36 @@
-import { Audio } from "expo-av";
 
-export default class Player {
-  soundObject = new Audio.Sound();
+const Player = {
+  load: async (audio, song) => {
+    const status = await audio.getStatusAsync();
+    if (!status.isLoaded) {
+      audio.loadAsync(song);
+    }
+  },
 
-  load(song) {
-    this.soundObject.getStatusAsync().then((status) => {
-      if (!status.isLoaded) {
-        this.soundObject.loadAsync(song).then();
-      }
-    });
-  }
+  play: async (audio, song) => {
+    const status = await audio.getStatusAsync();
+    if (!status.isLoaded) {
+      await audio.loadAsync(song);
+      audio.playAsync();
+    } else if (status.positionMillis === status.durationMillis) {
+      audio.playFromPositionAsync(0);
+    } else {
+      audio.playAsync();
+    }
+  },
 
-  play(song) {
-    this.soundObject.getStatusAsync().then((status) => {
-      if (!status.isLoaded) {
-        this.soundObject.loadAsync(song).then(() => {
-          this.soundObject.playAsync().then();
-        });
-      } else if (status.positionMillis === status.durationMillis) {
-        this.soundObject.playFromPositionAsync(0).then();
-      } else {
-        this.soundObject.playAsync().then();
-      }
-    });
-  }
+  pause: (audio) => audio.pauseAsync(),
 
-  pause() {
-    this.soundObject.pauseAsync().then({});
-  }
+  stopAndUnload: async (audio, onUnload) => {
+    let status = await audio.getStatusAsync();
+    if (status.isLoaded) {
+      await audio.stopAsync();
+      await audio.unloadAsync();
+      onUnload();
+    }
+  },
 
-  stopAndUnload(onUnload) {
-    this.soundObject.getStatusAsync().then((status) => {
-      if (status.isLoaded) {
-        this.soundObject.stopAsync().then(() => {
-          this.soundObject.unloadAsync().then(() => {
-            onUnload();
-          });
-        });
-      }
-    });
-  }
+  setLooping: (audio, shouldLoop) => audio.setIsLoopingAsync(shouldLoop)
+};
 
-  setLooping(shouldLoop) {
-    this.soundObject.setIsLoopingAsync(shouldLoop).then();
-  }
-}
+export default Player;

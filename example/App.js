@@ -1,38 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { Audio } from "expo-av";
 import AvoDebugger from "react-native-analytics-debugger";
 import * as Inspector from "react-native-avo-inspector";
 
-import MusicStorage from "./MusicStorage";
 import Player from "./Player";
+import MusicStorage from "./MusicStorage";
 import Avo from "./Avo";
 
-export default class App extends Component {
-  state = {
-    playing: false,
-    currentTrackIndex: 0,
-    looping: false,
-    time: 0,
-    duration: 0
-  };
+const App = () => {
+  const [currentTrackIndex, setCurrentTrackIndex] = React.useState(0);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isLooping, setIsLooping] = React.useState(false);
+  const [time, setTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
 
-  playerStorage = new MusicStorage();
-  player = new Player();
+  const [inspector, setInspector] = React.useState(() => new Inspector.AvoInspector({
+    apiKey: "AYytYzAOPvJh1XZfy8yj",
+    env: "dev",
+    version: "v1",
+    appName: "Debugger test app"
+  }))
 
-  constructor(props) {
-    super(props);
+  const [sound, setSound] = React.useState(() => new Audio.Sound());
 
-    let inspector = new Inspector.AvoInspector({
-      apiKey: "AYytYzAOPvJh1XZfy8yj",
-      env: "dev",
-      version: "v1",
-      appName: "Debugger test app"
-    });
-
+  React.useEffect(() => {
     inspector.enableLogging(true);
 
     Avo.initAvo(
-      { env: "dev",  debugger: AvoDebugger  },
+      { env: "dev", debugger: AvoDebugger },
       {},
       {},
       {
@@ -43,193 +39,115 @@ export default class App extends Component {
       }
     );
     Avo.appOpened();
-  }
 
-  componentDidMount() {
-    this.player.soundObject.setOnPlaybackStatusUpdate((status) => {
-      this.setState(() => ({
-        time: status.positionMillis / 1000,
-        duration: status.durationMillis / 1000
-      }));
+    sound.setOnPlaybackStatusUpdate((status) => {
+      setTime(() => status.positionMillis / 1000);
+      setDuration(() => status.durationMillis / 1000);
     });
-    this.player.load(
-      this.playerStorage.trackAsset(this.state.currentTrackIndex)
-    );
+    Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
 
     AvoDebugger.showDebugger({ mode: "bar" });
-  }
+  }, []);
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View
-          style={{
-            position: "absolute",
-            top: 48,
-            left: 0,
-            right: 0,
-            flexDirection: "row",
-            justifyContent: "space-around"
-          }}>
-          <Button onPress={this.toggleBarDebugger} title="Bar debugger" />
-          <Button onPress={this.toggleBubbleDebugger} title="Bubble debugger" />
-          <Button onPress={this.disableDebugger} title="Disable debugger" />
+  React.useEffect(() => {
+    if (isPlaying) {
+      Player.pause(sound);
+      Avo.pause({ currentSongName: MusicStorage.trackName(currentTrackIndex) });
+    } else {
+      Player.play(sound, MusicStorage.trackAsset(currentTrackIndex));
+      Avo.play({ currentSongName: MusicStorage.trackName(currentTrackIndex) });
+    }
+
+    setIsPlaying(() => !isPlaying);
+  }, [isPlaying]);
+
+  let handlePrevPress = () => {
+    if (MusicStorage.hasPrev(currentTrackIndex)) {
+      Avo.playPreviousTrack({
+        currentSongName: MusicStorage.trackName(currentTrackIndex),
+        upcomingTrackName: MusicStorage.prevTrackName(currentTrackIndex)
+      });
+
+      Player.stopAndUnload(sound, () => {
+        Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
+      });
+
+      setIsPlaying(() => false);
+      setCurrentTrackIndex(() => currentTrackIndex - 1);
+    }
+  };
+
+  let handleNextPress = () => {
+    if (MusicStorage.hasNext(currentTrackIndex)) {
+      Avo.playNextTrack({
+        currentSongName: MusicStorage.trackName(currentTrackIndex),
+        upcomingTrackName: MusicStorage.nextTrackName(currentTrackIndex)
+      });
+
+      Player.stopAndUnload(sound, () => {
+        Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
+      });
+
+      setIsPlaying(() => false);
+      setCurrentTrackIndex(() => currentTrackIndex + 1);
+    }
+  };
+
+  const handleLoopPress = () => {
+    Player.setLooping(sound, !isLooping);
+    setIsLooping(() => !isLooping);
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.debugger}>
+        <Button
+          onPress={() => AvoDebugger.showDebugger({ mode: "bar" })}
+          title="Bar debugger"
+        />
+        <Button
+          onPress={() => AvoDebugger.showDebugger({ mode: "bubble" })}
+          title="Bubble debugger"
+        />
+        <Button
+          onPress={() => AvoDebugger.hideDebugger()}
+          title="Disable debugger"
+        />
+      </View>
+
+      <Text style={styles.label}>
+        {MusicStorage.trackName(currentTrackIndex)}
+      </Text>
+
+      <Text style={styles.label}>
+        {time} / {duration}
+      </Text>
+
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        <View style={{ width: 24 }}>
+          {MusicStorage.hasPrev(currentTrackIndex) && (
+            <Button onPress={handlePrevPress} title="<" />
+          )}
         </View>
-
-        <Text style={styles.label}>
-          {this.playerStorage.trackName(this.state.currentTrackIndex)}
-        </Text>
-
-        <Text style={styles.label}>{this.timingLabel()}</Text>
-
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          {this.prevTrackButton()}
-          <Button
-            onPress={this.onPlayPausePress}
-            title={this.playButtonTitle()}
-          />
-          {this.nextTrackButton()}
-        </View>
-        <View style={{ margin: 16 }}>
-          <Button onPress={this.onLoopPress} title={this.loopButtonTitle()} />
+        <Button
+          onPress={() => setIsPlaying(!isPlaying)}
+          title={isPlaying ? "Pause" : "Play"}
+        />
+        <View style={{ width: 24 }}>
+          {MusicStorage.hasNext(currentTrackIndex) && (
+            <Button onPress={handleNextPress} title=">" />
+          )}
         </View>
       </View>
-    );
-  }
-
-  timingLabel = () => {
-    if (isNaN(this.state.time)) {
-      return "";
-    }
-
-    return this.state.time + " / " + this.state.duration;
-  };
-
-  playButtonTitle() {
-    if (this.state.playing) {
-      return "Pause";
-    } else {
-      return "Play";
-    }
-  }
-
-  loopButtonTitle() {
-    if (this.state.looping) {
-      return "Looping On";
-    } else {
-      return "Looping Off";
-    }
-  }
-
-  onPlayPausePress = () => {
-    if (this.state.playing === false) {
-      this.player.play(
-        this.playerStorage.trackAsset(this.state.currentTrackIndex)
-      );
-      Avo.play({
-        currentSongName: this.playerStorage.trackName(
-          this.state.currentTrackIndex
-        )
-      });
-    } else {
-      this.player.pause();
-      Avo.pause({
-        currentSongName: this.playerStorage.trackName(
-          this.state.currentTrackIndex
-        )
-      });
-    }
-
-    this.setState(() => ({ playing: !this.state.playing }));
-  };
-
-  nextTrackButton = () => {
-    if (this.playerStorage.hasNext(this.state.currentTrackIndex)) {
-      return (
-        <View style={{ width: 24 }}>
-          <Button onPress={this.onNextTrackPress} title=">" />
-        </View>
-      );
-    } else {
-      return <View style={{ width: 24 }} />;
-    }
-  };
-
-  onNextTrackPress = () => {
-    if (this.playerStorage.hasNext(this.state.currentTrackIndex)) {
-      Avo.playNextTrack({
-        currentSongName: this.playerStorage.trackName(
-          this.state.currentTrackIndex
-        ),
-        upcomingTrackName: this.playerStorage.nextTrackName(
-          this.state.currentTrackIndex
-        )
-      });
-
-      this.player.stopAndUnload(() => {
-        this.player.load(
-          this.playerStorage.trackAsset(this.state.currentTrackIndex)
-        );
-      });
-      this.setState(() => ({
-        playing: false,
-        currentTrackIndex: this.state.currentTrackIndex + 1
-      }));
-    }
-  };
-
-  prevTrackButton = () => {
-    if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
-      return (
-        <View style={{ width: 24 }}>
-          <Button onPress={this.onPrevTrackPress} title="<" />
-        </View>
-      );
-    } else {
-      return <View style={{ width: 24 }} />;
-    }
-  };
-
-  onPrevTrackPress = () => {
-    if (this.playerStorage.hasPrev(this.state.currentTrackIndex)) {
-      Avo.playPreviousTrack({
-        currentSongName: this.playerStorage.trackName(
-          this.state.currentTrackIndex
-        ),
-        upcomingTrackName: this.playerStorage.prevTrackName(
-          this.state.currentTrackIndex
-        )
-      });
-
-      this.player.stopAndUnload(() => {
-        this.player.load(
-          this.playerStorage.trackAsset(this.state.currentTrackIndex)
-        );
-      });
-      this.setState(() => ({
-        playing: false,
-        currentTrackIndex: this.state.currentTrackIndex - 1
-      }));
-    }
-  };
-
-  toggleBarDebugger = () => {
-    AvoDebugger.showDebugger({ mode: "bar" });
-  };
-
-  toggleBubbleDebugger = () => {
-    AvoDebugger.showDebugger({ mode: "bubble" });
-  };
-
-  disableDebugger = () => {
-    AvoDebugger.hideDebugger();
-  };
-
-  onLoopPress = () => {
-    this.player.setLooping(!this.state.looping);
-    this.setState(() => ({ looping: !this.state.looping }));
-  };
-}
+      <View style={{ margin: 16 }}>
+        <Button
+          onPress={handleLoopPress}
+          title={isLooping ? "Looping On" : "Looping Off"}
+        />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -237,5 +155,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center"
   },
-  label: { alignSelf: "center", margin: 16 }
+  label: { alignSelf: "center", margin: 16 },
+  debugger: {
+    position: "absolute",
+    top: 48,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "space-around"
+  }
 });
+
+export default App;
