@@ -4,9 +4,20 @@ import { Audio } from "expo-av";
 import AvoDebugger from "react-native-analytics-debugger";
 import * as Inspector from "react-native-avo-inspector";
 
-import Player from "./Player";
-import MusicStorage from "./MusicStorage";
 import Avo from "./Avo";
+
+const inspector = new Inspector.AvoInspector({
+  apiKey: "AYytYzAOPvJh1XZfy8yj",
+  env: "dev",
+  version: "v1",
+  appName: "Debugger test app"
+});
+
+let songs = {
+  greek_loop_mix: require("./assets/greek_loop_mix.mp3"),
+  jingle_jungle_around_the_bot: require("./assets/jingle_jungle_around_the_bot.wav"),
+  "cartoon-whistle": require("./assets/cartoon-whistle.wav")
+};
 
 const App = () => {
   const [currentTrackIndex, setCurrentTrackIndex] = React.useState(0);
@@ -15,87 +26,98 @@ const App = () => {
   const [time, setTime] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
 
-  const [inspector, setInspector] = React.useState(() => new Inspector.AvoInspector({
-    apiKey: "AYytYzAOPvJh1XZfy8yj",
-    env: "dev",
-    version: "v1",
-    appName: "Debugger test app"
-  }))
-
-  const [sound, setSound] = React.useState(() => new Audio.Sound());
+  const [sound, setSound] = React.useState();
 
   React.useEffect(() => {
     inspector.enableLogging(true);
 
     Avo.initAvo(
       { env: "dev", debugger: AvoDebugger },
-      {},
-      {},
+      {}, // This object is for system properties
+      {}, // This is for legacy destination options, you probably won't need to use it
       {
-        make: function () {},
-        logEvent: function (eventName) {
+        // This is your destination interface. Here you'd send your event to your analytics provider. If you have many destinations they get chained here in the same order as they appear in the Avo UI. You can confirm the order by looking at the the initAvo function in the Avo file.
+        make: () => {},
+        logEvent: (eventName) => {
           inspector.trackSchemaFromEvent(eventName, []);
         }
       }
     );
     Avo.appOpened();
 
-    sound.setOnPlaybackStatusUpdate((status) => {
-      setTime(() => status.positionMillis / 1000);
-      setDuration(() => status.durationMillis / 1000);
-    });
-    Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
-
     AvoDebugger.showDebugger({ mode: "bar" });
+
+    Audio.Sound.createAsync(Object.values(songs)[currentTrackIndex]).then(
+      ({ sound }) => setSound(sound)
+    );
+    return;
   }, []);
 
   React.useEffect(() => {
-    if (isPlaying) {
-      Player.pause(sound);
-      Avo.pause({ currentSongName: MusicStorage.trackName(currentTrackIndex) });
+    if (sound) {
+      let onPlaybackStatusUpdate = (status) => {
+        setTime(status.positionMillis);
+        setDuration(status.durationMillis);
+      };
+      sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
+      return () => sound.unloadAsync();
     } else {
-      Player.play(sound, MusicStorage.trackAsset(currentTrackIndex));
-      Avo.play({ currentSongName: MusicStorage.trackName(currentTrackIndex) });
+      undefined;
     }
+  }, [sound]);
 
-    setIsPlaying(() => !isPlaying);
-  }, [isPlaying]);
-
-  let handlePrevPress = () => {
-    if (MusicStorage.hasPrev(currentTrackIndex)) {
-      Avo.playPreviousTrack({
-        currentSongName: MusicStorage.trackName(currentTrackIndex),
-        upcomingTrackName: MusicStorage.prevTrackName(currentTrackIndex)
-      });
-
-      Player.stopAndUnload(sound, () => {
-        Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
-      });
-
-      setIsPlaying(() => false);
-      setCurrentTrackIndex(() => currentTrackIndex - 1);
+  let handlePlayPausePress = async () => {
+    let songName = Object.keys(songs)[currentTrackIndex];
+    Avo.play({ currentSongName: songName });
+    setIsPlaying(true);
+    if (isPlaying) {
+      sound?.pauseAsync();
+      Avo.pause({ currentSongName: songName });
+      setIsPlaying(false);
+    } else {
+      sound.playAsync();
     }
   };
 
-  let handleNextPress = () => {
-    if (MusicStorage.hasNext(currentTrackIndex)) {
+  let handlePrevPress = async () => {
+    let previousSong = Object.keys(songs)[currentTrackIndex - 1];
+    if (previousSong) {
+      Avo.playPreviousTrack({
+        currentSongName: Object.keys(songs)[currentTrackIndex],
+        upcomingTrackName: previousSong
+      });
+      setCurrentTrackIndex(currentTrackIndex - 1);
+
+      const { sound } = await Audio.Sound.createAsync(songs[previousSong]);
+      setSound(sound);
+
+      if (isPlaying) {
+        sound.playAsync();
+      }
+    }
+  };
+
+  let handleNextPress = async () => {
+    let nextSong = Object.keys(songs)[currentTrackIndex + 1];
+    if (nextSong) {
       Avo.playNextTrack({
-        currentSongName: MusicStorage.trackName(currentTrackIndex),
-        upcomingTrackName: MusicStorage.nextTrackName(currentTrackIndex)
+        currentSongName: Object.keys(songs)[currentTrackIndex],
+        upcomingTrackName: nextSong
       });
+      setCurrentTrackIndex(currentTrackIndex + 1);
 
-      Player.stopAndUnload(sound, () => {
-        Player.load(sound, MusicStorage.trackAsset(currentTrackIndex));
-      });
+      const { sound } = await Audio.Sound.createAsync(songs[nextSong]);
+      setSound(sound);
 
-      setIsPlaying(() => false);
-      setCurrentTrackIndex(() => currentTrackIndex + 1);
+      if (isPlaying) {
+        sound.playAsync();
+      }
     }
   };
 
   const handleLoopPress = () => {
-    Player.setLooping(sound, !isLooping);
-    setIsLooping(() => !isLooping);
+    sound.setIsLoopingAsync(!isLooping);
+    setIsLooping((isLooping) => !isLooping);
   };
 
   return (
@@ -115,26 +137,25 @@ const App = () => {
         />
       </View>
 
-      <Text style={styles.label}>
-        {MusicStorage.trackName(currentTrackIndex)}
-      </Text>
+      <Text style={styles.label}>{Object.keys(songs)[currentTrackIndex]}</Text>
 
       <Text style={styles.label}>
-        {time} / {duration}
+        {time !== undefined && time / 1000} /{" "}
+        {duration !== undefined && duration / 1000}
       </Text>
 
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <View style={{ width: 24 }}>
-          {MusicStorage.hasPrev(currentTrackIndex) && (
+          {currentTrackIndex - 1 >= 0 && (
             <Button onPress={handlePrevPress} title="<" />
           )}
         </View>
         <Button
-          onPress={() => setIsPlaying(!isPlaying)}
+          onPress={handlePlayPausePress}
           title={isPlaying ? "Pause" : "Play"}
         />
         <View style={{ width: 24 }}>
-          {MusicStorage.hasNext(currentTrackIndex) && (
+          {Object.keys(songs)[currentTrackIndex + 1] && (
             <Button onPress={handleNextPress} title=">" />
           )}
         </View>
