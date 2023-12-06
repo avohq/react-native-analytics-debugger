@@ -63,11 +63,9 @@ AvoDebugger.post(Date.now(), "Test Event", [{id:"id0", name:"prop 0 name", value
 
 Thank you, you are precious to us :hug: Please send an email to friends@avo.app or file an issue here on GitHub.
 
-## How to Commit
+## Developing
 
-```
-yarn commit
-```
+Install all dependencies with `yarn install`. `yarn test -u` to run the tests and update the snaphsots.
 
 ## How to Create a Release
 

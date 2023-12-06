@@ -3,12 +3,12 @@
 exports[`EventListItem Renders correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flex": 1,
       },
-      Object {
+      {
         "backgroundColor": "#FFFFFF",
       },
     ]
@@ -16,6 +16,7 @@ exports[`EventListItem Renders correctly 1`] = `
 >
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -25,7 +26,7 @@ exports[`EventListItem Renders correctly 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "row",
@@ -36,12 +37,12 @@ exports[`EventListItem Renders correctly 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/red_warning.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -51,7 +52,7 @@ exports[`EventListItem Renders correctly 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flex": 1,
           "marginLeft": 8,
         }
@@ -59,13 +60,13 @@ exports[`EventListItem Renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 8,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#666666",
             },
           ]
@@ -75,13 +76,13 @@ exports[`EventListItem Renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 16,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#D94553",
             },
           ]
@@ -92,12 +93,12 @@ exports[`EventListItem Renders correctly 1`] = `
     </View>
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/expend_arrow.png",
         }
       }
       style={
-        Object {
+        {
           "height": 6,
           "margin": 19,
           "width": 10,
@@ -107,7 +108,7 @@ exports[`EventListItem Renders correctly 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -120,12 +121,12 @@ exports[`EventListItem Renders correctly 1`] = `
 exports[`EventListItem Renders correctly when expanded 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flex": 1,
       },
-      Object {
+      {
         "backgroundColor": "#FFFFFF",
       },
     ]
@@ -133,6 +134,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
 >
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -142,7 +144,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "row",
@@ -153,12 +155,12 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/red_warning.png",
         }
       }
       style={
-        Object {
+        {
           "height": 16,
           "margin": 16,
           "resizeMode": "contain",
@@ -168,7 +170,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flex": 1,
           "marginLeft": 8,
         }
@@ -176,13 +178,13 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 8,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#666666",
             },
           ]
@@ -192,13 +194,13 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "fontSize": 16,
               "fontWeight": "bold",
               "textAlignVertical": "center",
             },
-            Object {
+            {
               "color": "#D94553",
             },
           ]
@@ -209,12 +211,12 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     </View>
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/collapse_arrow.png",
         }
       }
       style={
-        Object {
+        {
           "height": 6,
           "margin": 19,
           "width": 10,
@@ -224,7 +226,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "marginEnd": 16,
         "marginStart": 16,
@@ -233,14 +235,14 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "flexDirection": "column",
         }
       }
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "flexDirection": "row",
             "height": 32,
@@ -250,12 +252,12 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 12,
                 "fontWeight": "bold",
               },
-              Object {
+              {
                 "color": "#D94553",
               },
             ]
@@ -265,11 +267,11 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
         </Text>
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 12,
               },
-              Object {
+              {
                 "color": "#D94553",
               },
             ]
@@ -280,7 +282,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
       </View>
       <Text
         style={
-          Object {
+          {
             "color": "#D94553",
             "fontSize": 10,
             "marginBottom": 16,
@@ -292,7 +294,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     </View>
     <View
       style={
-        Object {
+        {
           "alignSelf": "stretch",
           "backgroundColor": "#E3E3E3",
           "height": 1,
@@ -301,14 +303,14 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "flexDirection": "column",
         }
       }
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "flexDirection": "row",
             "height": 32,
@@ -318,12 +320,12 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 12,
                 "fontWeight": "bold",
               },
-              Object {
+              {
                 "color": "#333333",
               },
             ]
@@ -333,11 +335,11 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
         </Text>
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 12,
               },
-              Object {
+              {
                 "color": "#333333",
               },
             ]
@@ -350,7 +352,7 @@ exports[`EventListItem Renders correctly when expanded 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
