@@ -21,7 +21,8 @@
     "@babel/preset-env": "^7.1.6"
   },
   "resolutions": {
-    "@react-native-async-storage/async-storage": "^1.20.0"
+    "@react-native-async-storage/async-storage": "^1.20.0",
+    "expo/@expo/cli/@expo/prebuild-config/@expo/image-utils/semver": "^7.5.3"
   },
   "private": true
 }
