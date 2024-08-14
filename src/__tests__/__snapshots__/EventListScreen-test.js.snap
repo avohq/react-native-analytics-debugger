@@ -3,8 +3,8 @@
 exports[`EventListScreen Renders correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "backgroundColor": "#FFFFFF",
         "bottom": 0,
         "flex": 1,
@@ -14,7 +14,7 @@ exports[`EventListScreen Renders correctly 1`] = `
         "right": 0,
         "top": 0,
       },
-      Object {
+      {
         "marginTop": undefined,
       },
     ]
@@ -22,7 +22,7 @@ exports[`EventListScreen Renders correctly 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flexDirection": "row",
         "height": 48,
@@ -32,13 +32,31 @@ exports[`EventListScreen Renders correctly 1`] = `
   >
     <Image
       source={
-        Object {
+        {
           "testUri": "../../../src/img/avo_logo.png",
         }
       }
     />
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
+      collapsable={false}
       focusable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -48,7 +66,7 @@ exports[`EventListScreen Renders correctly 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "height": 48,
           "opacity": 1,
           "position": "absolute",
@@ -60,12 +78,12 @@ exports[`EventListScreen Renders correctly 1`] = `
     >
       <Image
         source={
-          Object {
+          {
             "testUri": "../../../src/img/close_button.png",
           }
         }
         style={
-          Object {
+          {
             "height": 10,
             "marginLeft": 19,
             "marginTop": 19,
@@ -77,7 +95,7 @@ exports[`EventListScreen Renders correctly 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "alignSelf": "stretch",
         "backgroundColor": "#E3E3E3",
         "height": 1,
@@ -86,15 +104,15 @@ exports[`EventListScreen Renders correctly 1`] = `
   />
   <RCTScrollView
     data={
-      Array [
-        Object {
-          "eventProps": Array [
-            Object {
+      [
+        {
+          "eventProps": [
+            {
               "id": "id0",
               "name": "prop 0 name",
               "value": "val 0",
             },
-            Object {
+            {
               "id": "id1",
               "name": "prop 1 name",
               "value": "val 1",
@@ -102,24 +120,24 @@ exports[`EventListScreen Renders correctly 1`] = `
           ],
           "id": "id-2",
           "key": "key-2",
-          "messages": Array [
-            Object {
+          "messages": [
+            {
               "message": "error in prop 0 with id0",
               "propertyId": "id0",
             },
           ],
           "name": "test-name",
-          "timestamp": 1602806400000,
-          "userProps": Array [],
+          "timestamp": 1602799200000,
+          "userProps": [],
         },
-        Object {
-          "eventProps": Array [
-            Object {
+        {
+          "eventProps": [
+            {
               "id": "id0",
               "name": "prop 0 name",
               "value": "val 0",
             },
-            Object {
+            {
               "id": "id1",
               "name": "prop 1 name",
               "value": "val 1",
@@ -127,24 +145,24 @@ exports[`EventListScreen Renders correctly 1`] = `
           ],
           "id": "id-0",
           "key": "key-0",
-          "messages": Array [
-            Object {
+          "messages": [
+            {
               "message": "error in prop 0 with id0",
               "propertyId": "id0",
             },
           ],
           "name": "test-name",
-          "timestamp": 1602763476000,
-          "userProps": Array [],
+          "timestamp": 1602756276000,
+          "userProps": [],
         },
-        Object {
-          "eventProps": Array [
-            Object {
+        {
+          "eventProps": [
+            {
               "id": "id0",
               "name": "prop 0 name",
               "value": "val 0",
             },
-            Object {
+            {
               "id": "id1",
               "name": "prop 1 name",
               "value": "val 1",
@@ -152,65 +170,78 @@ exports[`EventListScreen Renders correctly 1`] = `
           ],
           "id": "id-1",
           "key": "key-1",
-          "messages": Array [
-            Object {
+          "messages": [
+            {
               "message": "error in prop 0 with id0",
               "propertyId": "id0",
             },
           ],
           "name": "test-name",
-          "timestamp": 1602763475000,
-          "userProps": Array [],
+          "timestamp": 1602756275000,
+          "userProps": [],
         },
       ]
     }
-    disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
     keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
     onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
     removeClippedSubviews={false}
     renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
     style={
-      Object {
+      {
         "backgroundColor": "#FFFFFF",
       }
     }
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
+    viewabilityConfigCallbackPairs={[]}
   >
     <View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "#FFFFFF",
               },
             ]
           }
         >
           <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
             accessible={true}
+            collapsable={false}
             focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -220,7 +251,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "flex": 1,
                 "flexDirection": "row",
@@ -231,12 +262,12 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/red_warning.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 16,
                   "margin": 16,
                   "resizeMode": "contain",
@@ -246,7 +277,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flex": 1,
                   "marginLeft": 8,
                 }
@@ -254,13 +285,13 @@ exports[`EventListScreen Renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 8,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#666666",
                     },
                   ]
@@ -270,13 +301,13 @@ exports[`EventListScreen Renders correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 16,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#D94553",
                     },
                   ]
@@ -287,12 +318,12 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/collapse_arrow.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 6,
                   "margin": 19,
                   "width": 10,
@@ -302,7 +333,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "marginEnd": 16,
                 "marginStart": 16,
@@ -311,14 +342,14 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -328,12 +359,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -343,11 +374,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -358,7 +389,7 @@ exports[`EventListScreen Renders correctly 1`] = `
               </View>
               <Text
                 style={
-                  Object {
+                  {
                     "color": "#D94553",
                     "fontSize": 10,
                     "marginBottom": 16,
@@ -370,7 +401,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "alignSelf": "stretch",
                   "backgroundColor": "#E3E3E3",
                   "height": 1,
@@ -379,14 +410,14 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -396,12 +427,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -411,11 +442,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -428,7 +459,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "backgroundColor": "#E3E3E3",
                 "height": 1,
@@ -438,24 +469,43 @@ exports[`EventListScreen Renders correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "#FFFFFF",
               },
             ]
           }
         >
           <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
             accessible={true}
+            collapsable={false}
             focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -465,7 +515,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "flex": 1,
                 "flexDirection": "row",
@@ -476,12 +526,12 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/red_warning.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 16,
                   "margin": 16,
                   "resizeMode": "contain",
@@ -491,7 +541,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flex": 1,
                   "marginLeft": 8,
                 }
@@ -499,13 +549,13 @@ exports[`EventListScreen Renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 8,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#666666",
                     },
                   ]
@@ -515,13 +565,13 @@ exports[`EventListScreen Renders correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 16,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#D94553",
                     },
                   ]
@@ -532,12 +582,12 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/collapse_arrow.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 6,
                   "margin": 19,
                   "width": 10,
@@ -547,7 +597,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "marginEnd": 16,
                 "marginStart": 16,
@@ -556,14 +606,14 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -573,12 +623,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -588,11 +638,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -603,7 +653,7 @@ exports[`EventListScreen Renders correctly 1`] = `
               </View>
               <Text
                 style={
-                  Object {
+                  {
                     "color": "#D94553",
                     "fontSize": 10,
                     "marginBottom": 16,
@@ -615,7 +665,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "alignSelf": "stretch",
                   "backgroundColor": "#E3E3E3",
                   "height": 1,
@@ -624,14 +674,14 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -641,12 +691,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -656,11 +706,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -673,7 +723,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "backgroundColor": "#E3E3E3",
                 "height": 1,
@@ -683,24 +733,43 @@ exports[`EventListScreen Renders correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "#FFFFFF",
               },
             ]
           }
         >
           <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
             accessible={true}
+            collapsable={false}
             focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -710,7 +779,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "flex": 1,
                 "flexDirection": "row",
@@ -721,12 +790,12 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/red_warning.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 16,
                   "margin": 16,
                   "resizeMode": "contain",
@@ -736,7 +805,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flex": 1,
                   "marginLeft": 8,
                 }
@@ -744,13 +813,13 @@ exports[`EventListScreen Renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 8,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#666666",
                     },
                   ]
@@ -760,13 +829,13 @@ exports[`EventListScreen Renders correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 16,
                       "fontWeight": "bold",
                       "textAlignVertical": "center",
                     },
-                    Object {
+                    {
                       "color": "#D94553",
                     },
                   ]
@@ -777,12 +846,12 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <Image
               source={
-                Object {
+                {
                   "testUri": "../../../src/img/collapse_arrow.png",
                 }
               }
               style={
-                Object {
+                {
                   "height": 6,
                   "margin": 19,
                   "width": 10,
@@ -792,7 +861,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "marginEnd": 16,
                 "marginStart": 16,
@@ -801,14 +870,14 @@ exports[`EventListScreen Renders correctly 1`] = `
           >
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -818,12 +887,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -833,11 +902,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#D94553",
                       },
                     ]
@@ -848,7 +917,7 @@ exports[`EventListScreen Renders correctly 1`] = `
               </View>
               <Text
                 style={
-                  Object {
+                  {
                     "color": "#D94553",
                     "fontSize": 10,
                     "marginBottom": 16,
@@ -860,7 +929,7 @@ exports[`EventListScreen Renders correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "alignSelf": "stretch",
                   "backgroundColor": "#E3E3E3",
                   "height": 1,
@@ -869,14 +938,14 @@ exports[`EventListScreen Renders correctly 1`] = `
             />
             <View
               style={
-                Object {
+                {
                   "flexDirection": "column",
                 }
               }
             >
               <View
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                     "height": 32,
@@ -886,12 +955,12 @@ exports[`EventListScreen Renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "fontWeight": "bold",
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -901,11 +970,11 @@ exports[`EventListScreen Renders correctly 1`] = `
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                       },
-                      Object {
+                      {
                         "color": "#333333",
                       },
                     ]
@@ -918,7 +987,7 @@ exports[`EventListScreen Renders correctly 1`] = `
           </View>
           <View
             style={
-              Object {
+              {
                 "alignSelf": "stretch",
                 "backgroundColor": "#E3E3E3",
                 "height": 1,
