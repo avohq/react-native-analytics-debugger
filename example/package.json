@@ -24,7 +24,8 @@
     "@react-native-async-storage/async-storage": "^1.20.0",
     "expo/@expo/cli/@expo/prebuild-config/@expo/image-utils/semver": "^7.5.3",
     "cross-spawn": "^7.0.5",
-    "on-headers": "^1.1.0"
+    "on-headers": "^1.1.0",
+    "tmp": "^0.2.4"
   },
   "private": true
 }
