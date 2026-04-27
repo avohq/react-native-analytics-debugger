@@ -1,3 +1,18 @@
+## [2.1.2](https://github.com/avohq/react-native-analytics-debugger/compare/2.1.1...2.1.2) (2026-04-27)
+
+
+### Bug Fixes
+
+* **BackHandler:** support React Native >= 0.77 by using the subscription returned by `BackHandler.addEventListener` and calling `.remove()` on unmount, since `BackHandler.removeEventListener` was removed in RN 0.77 ([#71](https://github.com/avohq/react-native-analytics-debugger/issues/71))
+* **Android:** add `elevation: 999` to the bar, bubble, and events-list-screen containers so the debugger renders above app content on newer React Native versions (`zIndex` alone does not control cross-tree Z-order on Android)
+
+
+### Notes
+
+> **Changelog gap:** entries for `2.0.0` through `2.1.1` are missing from this file. Refer to the [GitHub release history](https://github.com/avohq/react-native-analytics-debugger/releases) and `git log` for changes in those versions.
+
+
+
 ## [1.2.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.1...1.2.2) (2020-02-25)
 
 

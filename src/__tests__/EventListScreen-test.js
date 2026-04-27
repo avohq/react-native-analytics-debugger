@@ -61,11 +61,14 @@ describe("EventListScreen", () => {
   });
 
   test("Back handler is binded on mount and removed on destroy", () => {
+    const remove = jest.fn();
+    ReactNative.BackHandler.addEventListener.mockReturnValueOnce({ remove });
+
     const listScreen = renderer.create(<EventsListScreen items={items} />);
     expect(ReactNative.BackHandler.addEventListener).toHaveBeenCalled();
 
     listScreen.unmount();
-    expect(ReactNative.BackHandler.removeEventListener).toHaveBeenCalled();
+    expect(remove).toHaveBeenCalled();
   });
 
   test("Back event toggles list view", () => {

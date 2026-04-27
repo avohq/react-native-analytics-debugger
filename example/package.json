@@ -6,22 +6,23 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "qa": "rm -rf node_modules/react-native-analytics-debugger/src && cp -R ../src node_modules/react-native-analytics-debugger/src && expo start --clear"
   },
   "dependencies": {
-    "expo": "~51.0.27",
-    "expo-av": "~14.0.6",
-    "react": "18.2.0",
-    "react-native": "0.74.5",
+    "expo": "~53.0.0",
+    "expo-av": "~15.1.0",
+    "react": "19.0.0",
+    "react-native": "0.79.0",
     "react-native-analytics-debugger": "^2.0.1-beta.1",
     "react-native-avo-inspector": "1.2.11-beta.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.1.6"
+    "@babel/core": "^7.25.0",
+    "@babel/preset-env": "^7.25.0"
   },
   "resolutions": {
-    "@react-native-async-storage/async-storage": "^1.20.0",
+    "@react-native-async-storage/async-storage": "^2.1.0",
     "expo/@expo/cli/@expo/prebuild-config/@expo/image-utils/semver": "^7.5.3",
     "cross-spawn": "^7.0.5",
     "on-headers": "^1.1.0",
