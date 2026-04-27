@@ -4,6 +4,5 @@ jest.mock('react-native/Libraries/Settings/Settings.ios.js', () => ({
 }));
 
 jest.mock('react-native/Libraries/Utilities/BackHandler.ios.js', () => ({
-  addEventListener: jest.fn(),
-  removeEventListener: jest.fn(),
+  addEventListener: jest.fn(() => ({ remove: jest.fn() })),
 }));

@@ -45,17 +45,17 @@ export default class EventsListScreen extends Component {
   };
 
   componentDidMount() {
-    BackHandler.addEventListener(
+    this.backHandlerSubscription = BackHandler.addEventListener(
       'hardwareBackPress',
       this.handleBackButtonClick
     );
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener(
-      'hardwareBackPress',
-      this.handleBackButtonClick
-    );
+    if (this.backHandlerSubscription) {
+      this.backHandlerSubscription.remove();
+      this.backHandlerSubscription = null;
+    }
   }
 
   handleBackButtonClick() {
