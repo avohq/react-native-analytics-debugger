@@ -53,6 +53,7 @@
   "resolutions": {
     "cross-spawn": "^7.0.5",
     "on-headers": "^1.1.0",
-    "tmp": "^0.2.4"
+    "tmp": "^0.2.4",
+    "flatted": "^3.4.2"
   }
 }
