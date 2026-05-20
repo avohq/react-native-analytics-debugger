@@ -1,3 +1,69 @@
+## [2.1.2](https://github.com/avohq/react-native-analytics-debugger/compare/2.1.1...2.1.2) (2026-04-27)
+
+
+### Bug Fixes
+
+* **BackHandler:** support React Native >= 0.77 by using the subscription returned by `BackHandler.addEventListener` and calling `.remove()` on unmount, since `BackHandler.removeEventListener` was removed in RN 0.77 ([#71](https://github.com/avohq/react-native-analytics-debugger/issues/71))
+* **Android:** add `elevation: 999` to the bar, bubble, and events-list-screen containers so the debugger renders above app content on newer React Native versions (`zIndex` alone does not control cross-tree Z-order on Android)
+
+
+## [2.1.1](https://github.com/avohq/react-native-analytics-debugger/compare/2.1.0...2.1.1) (2025-04-07)
+
+
+### Bug Fixes
+
+* update `cross-spawn` to 7.0.6 ([876e300](https://github.com/avohq/react-native-analytics-debugger/commit/876e300))
+* bump `fast-xml-parser`, `micromatch`, `serve-static`, `nanoid`, and `image-size` to resolve security advisories
+
+
+
+# [2.1.0](https://github.com/avohq/react-native-analytics-debugger/compare/2.0.0...2.1.0) (2024-08-15)
+
+
+### Features
+
+* update dependencies and dev framework versions and refresh test snapshots ([563aeb9](https://github.com/avohq/react-native-analytics-debugger/commit/563aeb9))
+* **example:** switch to the new Avo Inspector package ([666fd4f](https://github.com/avohq/react-native-analytics-debugger/commit/666fd4f))
+
+
+### Bug Fixes
+
+* bump `braces`, `tar`, `ip`, and `ws` to resolve security advisories
+
+
+
+# [2.0.0](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.3...2.0.0) (2023-12-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* `react` and `react-native` are no longer bundled as direct dependencies. They are now declared as `peerDependencies` (`react-native` `^0.69.0`), so the debugger uses the host app's React Native version. Consuming apps must have a compatible `react-native` installed.
+
+
+### Features
+
+* move `react`/`react-native` to `peerDependencies` and update the development target to React Native 0.69 ([6ff5be2](https://github.com/avohq/react-native-analytics-debugger/commit/6ff5be2))
+* update the development React Native version to 0.72 ([9edaa84](https://github.com/avohq/react-native-analytics-debugger/commit/9edaa84))
+* add unit and snapshot tests ([64aad8f](https://github.com/avohq/react-native-analytics-debugger/commit/64aad8f))
+* **example:** rewrite the example app using function components ([f479dd3](https://github.com/avohq/react-native-analytics-debugger/commit/f479dd3))
+* **example:** integrate Avo Inspector ([23a8561](https://github.com/avohq/react-native-analytics-debugger/commit/23a8561))
+
+
+### Bug Fixes
+
+* numerous dependency security bumps (semver, lodash, json5, and others)
+
+
+
+## [1.2.3](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.2...1.2.3) (2023-11-09)
+
+
+### Bug Fixes
+
+* **AsyncStorage:** import from `@react-native-async-storage/async-storage` instead of the removed `react-native` core export ([ddcde7f](https://github.com/avohq/react-native-analytics-debugger/commit/ddcde7f))
+
+
+
 ## [1.2.2](https://github.com/avohq/react-native-analytics-debugger/compare/1.2.1...1.2.2) (2020-02-25)
 
 

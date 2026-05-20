@@ -9,6 +9,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
         backgroundColor: colors.background,
+        zIndex: 999,
+        elevation: 999,
     },
     avoLabelContainer: { height: 48, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' },
     closeButtonTouchableArea: { height: 48, width: 48, position: 'absolute', top: 0, right: 0 },

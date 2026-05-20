@@ -68,14 +68,14 @@ const App = () => {
 
   let handlePlayPausePress = async () => {
     let songName = Object.keys(songs)[currentTrackIndex];
-    Avo.play({ currentSongName: songName });
-    setIsPlaying(true);
     if (isPlaying) {
       sound?.pauseAsync();
       Avo.pause({ currentSongName: songName });
       setIsPlaying(false);
     } else {
       sound.playAsync();
+      Avo.play({ currentSongName: songName });
+      setIsPlaying(true);
     }
   };
 
